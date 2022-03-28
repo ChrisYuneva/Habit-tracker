@@ -1,0 +1,17 @@
+.card {
+  width: 700px;
+  height: 150px;
+  background: rgba(148, 164, 193, 0.95);
+  color: #FFFFFF;
+  margin-bottom: 30px;
+  border-radius: 10px;
+}
+
+.card-description {
+  padding-left: 16px;
+  padding-top: 10px;
+}
+
+.card-description h3{
+  padding-bottom: 8px;
+}

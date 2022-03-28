@@ -1,0 +1,11 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  background-color: #92A4D7;
+}
+
+.header-container h1 {
+  margin-left: 32px;
+  color: #FFFFFF;
+}

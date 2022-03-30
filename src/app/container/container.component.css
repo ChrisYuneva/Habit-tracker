@@ -1,4 +1,4 @@
-.container {
+.container-card {
   display: flex;
   flex-direction: column;
   background-image: url("../../assets/background1.png");

@@ -1,6 +1,23 @@
-<div class="card" data-toggle="modal" data-target="#exampleModal">
+<div class="card" [class.div-none]="del>0">
   <div class="card-description">
-    <h2>Привычка</h2>
+    <div class="card-description-sm-container">
+      <button (click)="test()" class="card-button">
+        <img src="../../assets/plus.svg"/>
+      </button>
+      <h2 data-toggle="modal" data-target="#exampleModal" [(ngModel)]="habit">{{habit}}</h2>
+      <button (click)="minus()" class="card-button">
+        <img src="../../assets/minus.svg"/>
+      </button>
+    </div>
+
+    <div class="scale">
+      <div class="scale-filling" *ngIf="count>0"></div>
+      <div class="scale-filling" *ngIf="count>1"></div>
+      <div class="scale-filling" *ngIf="count>2"></div>
+      <div class="scale-filling" *ngIf="count>3"></div>
+      <div class="scale-filling" *ngIf="count>4"></div>
+      <div class="dis-none" *ngIf="count==2"></div>
+    </div>
   </div>
 </div>
 
@@ -17,7 +34,7 @@
       </div>
       <div class="modal-body modal-body-custom">
         <h5>Описание:</h5>
-        <input type="text" class="form-control input-text-custom mb-3">
+        <input type="text" [(ngModel)]="habit" class="form-control input-text-custom mb-3">
         <h6>Тип привычки:</h6>
         <select name="select" class="custom-select mb-3">
           <option value="Полезная" selected>Полезная</option>
@@ -25,6 +42,7 @@
         </select>
         <h6>Сложность:</h6>
         <input class="form-control modal-custom-input" type="number" size="3" name="num" min="1" max="5" value="1">
+        <button (click)="delCard" class="btn-del">Удалить привычку</button>
       </div>
     </div>
   </div>

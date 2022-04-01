@@ -1,12 +1,14 @@
 .header-container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  padding-left: 32px;
+  padding-right: 32px;
   height: 70px;
   background-color: #92A4D7;
 }
 
 .header-container h1 {
-  margin-left: 32px;
   color: #FFFFFF;
-  font-size: 36px;
+  font-size: 32px;
 }

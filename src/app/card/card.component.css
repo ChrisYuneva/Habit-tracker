@@ -55,6 +55,12 @@
 .modal-custom-input {
   display: block;
   width: 12%;
+  cursor: pointer;
+}
+
+.modal-custom-input:focus {
+  border-color: #9194D6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .custom-select {
@@ -65,10 +71,6 @@
 .custom-select:focus {
   border-color: #9194D6;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.custom-select option:hover {
-  background-color: red;
 }
 
 .input-text-custom {
@@ -113,15 +115,15 @@
   flex-direction: row;
   align-items: center;
   width: 200px;
-  height: 41px;
+  height: 32px;
   border: 2px solid #5065A0;
   border-radius: 2px;
 }
 
 .scale-filling {
   background-color: #C8D1EB;
-  height: 39px;
-  width: 40px;
+  height: 29px;
+  width: 25px;
 }
 
 .dis-none {
@@ -130,8 +132,10 @@
 
 .btn-del {
   cursor: pointer;
-  border: none;
+  border: 1px solid #9194D6;
+  border-radius: 2px;
   background: transparent;
   outline: none;
-  padding-left: 40%;
+  padding: 2px 7px 2px 7px;
+  margin-left: 37%;
 }

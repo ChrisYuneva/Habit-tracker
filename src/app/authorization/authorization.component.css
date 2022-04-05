@@ -1,0 +1,54 @@
+.authorization-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("../../assets/aut2.png");
+}
+
+.authorization-form {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: 50vh;
+  border-radius: 7px;
+  background-color: #FFFFFF;
+  padding: 24px 20px 0 20px;
+}
+
+.authorization-form label {
+  font-size: 20px;
+  color: #454545;
+}
+
+.authorization-input {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 2px solid #454545;
+  margin-bottom: 20px;
+  color: #454545;
+}
+
+.authorization-input::placeholder {
+  color: #454545;
+}
+
+.authorization-input:focus-visible {
+  border-bottom: 2px solid #454545;
+  outline: none;
+}
+
+.authorization-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(180deg, #4587A1 0%, #846DA0 100%);
+  margin-top: 40%;
+  color: #000000;
+}

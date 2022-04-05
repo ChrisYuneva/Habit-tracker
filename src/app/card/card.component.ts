@@ -9,7 +9,6 @@ export class CardComponent implements OnInit {
 
   count: number = 0;
   del: number = 0;
-
   habit: string = 'Привычка';
 
   constructor() {
@@ -18,19 +17,15 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  test(): void {
-    // this.count=true;
-    this.count++;
-    console.log(this.count);
+  plus(): void {
+    this.count===8?this.count:this.count++;
   }
 
   minus(): void {
-    this.count--;
-    console.log(this.count);
+    this.count===0?this.count:this.count--;
   }
 
   delCard(): void {
     this.del++;
   }
-
 }

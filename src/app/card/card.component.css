@@ -126,16 +126,22 @@
   width: 25px;
 }
 
-.dis-none {
-  display: none;
+.popup-title {
+  color: #454545;
 }
 
 .btn-del {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 150px;
   cursor: pointer;
-  border: 1px solid #9194D6;
-  border-radius: 2px;
-  background: transparent;
   outline: none;
+  border: none;
+  color: #454545;
+  background: linear-gradient(0deg, #92BDDD 0%, #B2B1D2 100%);
+  border-radius: 2px;
   padding: 2px 7px 2px 7px;
   margin-left: 37%;
 }

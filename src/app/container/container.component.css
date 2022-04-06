@@ -2,6 +2,46 @@
   display: flex;
   flex-direction: column;
   background-image: url("../../assets/background1.png");
-  padding-top: 50px;
-  padding-left: 50px;
+  padding: 50px 50px 0 50px;
+}
+
+.container-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 200px;
+  margin-bottom: 24px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: #FFFFFF;
+  background: linear-gradient(0deg, #92BDDD 0%, #B2B1D2 100%);
+}
+
+.sm-scale {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+ }
+
+.scale-container {
+
+}
+
+.scale{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 200px;
+  height: 32px;
+  border: 2px solid #5065A0;
+  border-radius: 2px;
+}
+
+.scale-filling {
+  background-color: #C8D1EB;
+  height: 29px;
+  width: 25px;
 }

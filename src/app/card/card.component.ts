@@ -8,7 +8,6 @@ import {Component, OnInit} from '@angular/core';
 export class CardComponent implements OnInit {
 
   count: number = 0;
-  del: number = 0;
   habit: string = 'Привычка';
 
   constructor() {
@@ -23,9 +22,5 @@ export class CardComponent implements OnInit {
 
   minus(): void {
     this.count===0?this.count:this.count--;
-  }
-
-  delCard(): void {
-    this.del++;
   }
 }

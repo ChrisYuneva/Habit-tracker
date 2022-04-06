@@ -3,17 +3,18 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url("../../assets/aut2.png");
+  background: linear-gradient(0deg, #92BDDD 0%, #B2B1D2 100%);
+  /*background: linear-gradient(180deg, #B3B4D4 0%, #B5BED4 13.02%, #B9CDD4 42.97%, #BBDEE5 100%);*/
+  /*background-image: url("../../assets/aut-7.png");*/
 }
 
 .authorization-form {
   display: flex;
   flex-direction: column;
   width: 20%;
-  height: 50vh;
   border-radius: 7px;
   background-color: #FFFFFF;
-  padding: 24px 20px 0 20px;
+  padding: 24px 20px 24px 20px;
 }
 
 .authorization-form label {
@@ -48,7 +49,7 @@
   outline: none;
   border: none;
   border-radius: 5px;
-  background: linear-gradient(180deg, #4587A1 0%, #846DA0 100%);
-  margin-top: 40%;
+  background: linear-gradient(0deg, #92BDDD 0%, #B2B1D2 100%);
+  margin-top: 25%;
   color: #000000;
 }

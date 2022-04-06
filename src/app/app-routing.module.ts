@@ -5,7 +5,7 @@ import {StatisticsComponent} from "./statistics/statistics.component";
 import {ContainerComponent} from "./container/container.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: '/habits', pathMatch: 'full' },
+  { path: '', redirectTo: '/authorization', pathMatch: 'full' },
   { path: 'authorization', component: AuthorizationComponent},
   { path: 'statistics', component: StatisticsComponent },
   { path: 'habits', component: ContainerComponent },

@@ -21,12 +21,13 @@ import { StatisticsComponent } from './statistics/statistics.component';
     AuthorizationComponent,
     StatisticsComponent,
   ],
+  entryComponents: [ ContainerComponent ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [ CardComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

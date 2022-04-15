@@ -1,4 +1,4 @@
-import {Component, ComponentFactoryResolver, OnInit, ViewContainerRef} from '@angular/core';
+import {Component, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {CardComponent} from "../card/card.component";
 
 @Component({
@@ -7,33 +7,21 @@ import {CardComponent} from "../card/card.component";
   styleUrls: ['./container.component.css']
 })
 
-
 export class ContainerComponent implements OnInit {
-
   constructor() {
+  }
+
+  @ViewChild('dynamic', { read: ViewContainerRef })
+  private viewRef: ViewContainerRef | any;
+
+  showDynamicComponent(): void {
+    this.viewRef.createComponent(CardComponent);
+  }
+
+  removeDynamicComponent(): void {
+    this.viewRef.detach();
   }
 
   ngOnInit() {
   }
-
-// test:number = 0;
-//
-//   constructor(private viewContainerRef: ViewContainerRef, private componentFactoryResolver: ComponentFactoryResolver,
-//               public card: Function) { }
-//
-//
-//
-//   ngOnInit(): void {
-//       this.card = () => {
-//         this.test++;
-//         if(this.test>0) {
-//           const componentFactory = this.componentFactoryResolver.resolveComponentFactory(CardComponent);
-//           const componentRef = this.viewContainerRef.createComponent(componentFactory);
-//         }
-//       }
-//
-//
-//
-//   }
-
 }

@@ -7,12 +7,14 @@
       </div>
       <span>0/8</span>
     </div>
-    <button class="container-btn">Добавить привычку</button>
+    <button (click)="showDynamicComponent()" class="container-btn">Добавить привычку</button>
+    <button (click)="removeDynamicComponent()"  class="container-btn">Удалить привычку</button>
   </div>
-
-<!--  <button (click)="card" class="container-btn">Добавить привычку</button>-->
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
+  <div class="test">
+    <app-card></app-card>
+    <app-card></app-card>
+    <app-card></app-card>
+    <app-card></app-card>
+    <ng-template #dynamic></ng-template>
+  </div>
 </section>

@@ -21,7 +21,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
     AuthorizationComponent,
     StatisticsComponent,
   ],
-  entryComponents: [ ContainerComponent ],
+  entryComponents: [ CardComponent ],
   imports: [
     BrowserModule,
     FormsModule,

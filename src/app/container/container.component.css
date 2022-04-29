@@ -50,3 +50,9 @@
   display: grid;
   grid-template: '. .';
 }
+
+.form-add {
+  height: 200px;
+  width: 800px;
+  background-color: #7F8FBB;
+}

@@ -1,19 +1,34 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Habit} from "../models/habit.model";
+import {BackendService} from "../services/backend.service";
+import {ContainerComponent} from "../container/container.component";
+import {ModalComponent} from "../modal/modal.component";
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent implements OnInit {
-
+export class CardComponent implements OnInit, OnChanges {
   count: number = 0;
-  habit: string = 'Привычка';
+  i:number = this.backendService.editingIndex;
 
-  constructor() {
+  @Input()
+  // @ts-ignore
+  habit: Habit;
+
+  // // @ts-ignore
+  // @Input()
+  // test: habitForm;
+
+  constructor(private backendService: BackendService) {
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
   }
 
   plus(): void {
@@ -23,4 +38,17 @@ export class CardComponent implements OnInit {
   minus(): void {
     this.count===0?this.count:this.count--;
   }
+
+  deleteHabit(id: number): void {
+    console.log(this.habit);
+    this.backendService.deleteHabit(this.habit.id);
+  }
+
+  setEditForm(index: number) {
+    this.backendService.updateHabit(index);
+  }
+
+  // update(): void {
+  //   this.backendService.updateHabit(this.habit.id);
+  // }
 }

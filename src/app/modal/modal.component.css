@@ -1,9 +1,40 @@
 .modal-center {
   position: fixed;
   top:26%;
-  left: 27%;
-  width: 400px;
+  left: 35%;
+  width: 470px;
   border: 2px solid black;
-  z-index:1000;
   background-color: #9194D6;
+}
+
+.modal-container {
+  background-color: #F2F4F9;
+}
+
+.purple {
+  background-color: #C7D1EC;
+}
+
+.modal-cls:focus {
+  box-shadow: none;
+}
+
+.modal-save {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 200px;
+  cursor: pointer;
+  outline: none;
+  border-radius: 5px;
+  color: #111111;
+  border: 1px solid #111111;
+}
+
+.modal-save:hover {
+  /*background: #9194D7;*/
+  background: linear-gradient(0deg, #92BDDD 0%, #B2B1D2 100%);
+  color: #FFFFFF;
+  border: none;
 }

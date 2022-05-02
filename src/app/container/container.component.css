@@ -56,3 +56,7 @@
   width: 800px;
   background-color: #7F8FBB;
 }
+
+.blur {
+  filter: blur(3px);
+}

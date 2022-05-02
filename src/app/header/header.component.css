@@ -27,3 +27,7 @@
   color: #FFFFFF;
 }
 
+.blur {
+  filter: blur(3px);
+}
+

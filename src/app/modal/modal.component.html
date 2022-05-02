@@ -1,9 +1,9 @@
 <div class="modal-center">
-  <div class="modal-header">
+  <div class="modal-header purple">
     <h4 class="modal-title" id="modal-basic-title">Привычка</h4>
-    <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
+    <button type="button" class="btn-close modal-cls" aria-label="Close" (click)="close()"></button>
   </div>
-  <div class="modal-body">
+  <div class="modal-body modal-container">
     <form [formGroup]="habitForm" id="add" class="form-add">
       <h5>Описание</h5>
       <input type="text" formControlName="name">
@@ -17,7 +17,8 @@
       <input class="form-control modal-custom-input" type="number" size="3" name="num" min="1" max="5" value="1">
     </form>
   </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="addHabit()">Сохранить</button>
+  <div class="modal-footer modal-container">
+    <button type="button" class="btn btn-outline-dark">Удалить привычку</button>
+    <button type="button" class="btn btn-outline-dark modal-save" (click)="addHabit()">Сохранить</button>
   </div>
 </div>

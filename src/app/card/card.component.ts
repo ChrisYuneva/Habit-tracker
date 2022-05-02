@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Habit} from "../models/habit.model";
 import {BackendService} from "../services/backend.service";
 import {ContainerComponent} from "../container/container.component";
@@ -16,6 +16,12 @@ export class CardComponent implements OnInit, OnChanges {
   @Input()
   // @ts-ignore
   habit: Habit;
+
+  @Input()
+  public adding = false;
+
+  @Output()
+  public completedCard: EventEmitter<void> = new EventEmitter<void>();
 
   // // @ts-ignore
   // @Input()
@@ -46,6 +52,10 @@ export class CardComponent implements OnInit, OnChanges {
 
   setEditForm(index: number) {
     this.backendService.updateHabit(index);
+  }
+
+  upDate(): void {
+    this.completedCard.emit()
   }
 
   // update(): void {

@@ -1,5 +1,4 @@
-import {Component, OnInit, Input, ViewChild, ViewContainerRef, Output, EventEmitter} from '@angular/core';
-import {ModalDismissReasons, NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {Habit, HABIT_TYPE} from "../models/habit.model";
 import {BackendService} from "../services/backend.service";
@@ -19,8 +18,10 @@ export class ModalComponent implements OnInit {
   @Output()
   public modalClosed: EventEmitter<void> = new EventEmitter<void>();
 
-
   @Output()
+  public completedCard: EventEmitter<void> = new EventEmitter<void>();
+
+
   public habitForm = new FormGroup({
     name: new FormControl(''),
     type: new FormControl(HABIT_TYPE.GOOD),
@@ -34,11 +35,15 @@ export class ModalComponent implements OnInit {
     this.modalClosed.emit();
   }
 
+  addHabit(): void {
+    const habit = this.habitForm.value;
+    this.backendService.addHabit(habit);
+    this.completedCard.emit();
+    this.close();
+  }
+
   ngOnInit() {
 
   }
 
-  addHabit(): void {
-    const habit = this.habitForm.value;
-  }
 }

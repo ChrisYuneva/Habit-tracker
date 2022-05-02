@@ -7,11 +7,10 @@
       </div>
       <span>0/8</span>
     </div>
-        <button class="btn btn-lg btn-outline-primary" (click)="openModal()">Добавить привычку</button>
+        <button class="container-btn" (click)="openModal()">Добавить привычку</button>
   </div>
   <div class="test">
-    <app-card *ngFor="let habit of habits" [habit]="habit" ></app-card>
-    <ng-template #dynamic></ng-template>
+    <app-card *ngFor="let habit of habits" [habit]="habit" [adding]="true" ></app-card>
   </div>
 
 <!--  <form [formGroup]="habitForm" (ngSubmit)="addHabit()" id="add" class="form-add" *ngIf="adding || editing">-->

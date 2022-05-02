@@ -2,6 +2,7 @@
   position: fixed;
   top:26%;
   left: 27%;
+  width: 400px;
   border: 2px solid black;
   z-index:1000;
   background-color: #9194D6;

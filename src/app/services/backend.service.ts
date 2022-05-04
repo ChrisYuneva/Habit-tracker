@@ -25,18 +25,6 @@ export class BackendService {
       difficulty: 2
     }
   ];
-
-  public adding = false;
-  public editing = false;
-  public editingIndex: number = 0;
-
-  public habitForm = new FormGroup({
-    id: new FormControl(this.habits.length + 1),
-    name: new FormControl(''),
-    type: new FormControl(HABIT_TYPE.GOOD),
-    difficulty: new FormControl(1)
-  });
-
   public habits$: BehaviorSubject<Habit[]> = new BehaviorSubject<Habit[]>(this.habits);
 
   getHabits(): BehaviorSubject<Habit[]> {
@@ -44,19 +32,22 @@ export class BackendService {
   }
 
   addHabit(habit: Habit) {
-    habit.id = this.habits[this.habits.length - 1].id + 1;
+    if(this.habits.length === 0) {
+      habit.id = 1;
+    }
+    else {
+      habit.id = this.habits[this.habits.length - 1].id + 1;
+    }
     this.habits.push(habit);
     this.habits$.next(this.habits);
   }
 
-  updateHabit(id: number) {
-    this.habitForm.patchValue({
-      name: this.habits[id].name,
-      type: this.habits[id].type,
-      difficulty: this.habits[id].difficulty,
-    });
-    this.editing = true;
-    this.editingIndex = id;
+  updateHabit(habit: Habit) {
+    const updatedHabit = this.habits.find(h => h.id === habit.id);
+    updatedHabit!.name = habit.name;
+    updatedHabit!.difficulty = habit.difficulty;
+    updatedHabit!.type = habit.type;
+    this.habits$.next(this.habits);
     }
 
   deleteHabit(id: number) {

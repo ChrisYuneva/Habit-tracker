@@ -11,7 +11,6 @@ import {ModalComponent} from "../modal/modal.component";
 })
 export class CardComponent implements OnInit, OnChanges {
   count: number = 0;
-  i:number = this.backendService.editingIndex;
 
   @Input()
   // @ts-ignore
@@ -22,6 +21,10 @@ export class CardComponent implements OnInit, OnChanges {
 
   @Output()
   public completedCard: EventEmitter<void> = new EventEmitter<void>();
+
+
+  @Output()
+  public edit: EventEmitter<void> = new EventEmitter<void>();
 
   // // @ts-ignore
   // @Input()
@@ -48,10 +51,6 @@ export class CardComponent implements OnInit, OnChanges {
   deleteHabit(id: number): void {
     console.log(this.habit);
     this.backendService.deleteHabit(this.habit.id);
-  }
-
-  setEditForm(index: number) {
-    this.backendService.updateHabit(index);
   }
 
   upDate(): void {

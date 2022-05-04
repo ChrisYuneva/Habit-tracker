@@ -9,9 +9,9 @@
     </div>
         <button class="container-btn" (click)="openModal()">Добавить привычку</button>
   </div>
-  <div class="test">
-    <app-card *ngFor="let habit of habits" [habit]="habit" [adding]="true" ></app-card>
+  <div class="card-block">
+    <app-card *ngFor="let habit of habits" [habit]="habit" (edit)="update(habit)"></app-card>
   </div>
 </section>
 
-<app-modal *ngIf="modalVisible" [adding]="true" (modalClosed)="modalVisible = false"></app-modal>
+<app-modal *ngIf="modalVisible" [adding]="modalAdding" [habit]="habitToUpdate" (modalClosed)="modalVisible = false"></app-modal>

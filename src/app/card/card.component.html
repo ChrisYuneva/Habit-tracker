@@ -8,6 +8,8 @@
       <button (click)="plus()" class="card-button">
         <img src="../../assets/plus.svg"/>
       </button>
+      <button type="button" class="btn btn-outline-dark" (click)="deleteHabit(this.habit.id)">Удалить привычку</button>
+      <button type="button" class="btn btn-outline-dark" (click)="edit.emit()">Редактировать привычку</button>
     </div>
     <div class="scale">
       <div class="scale-filling" *ngIf="count>0"></div>

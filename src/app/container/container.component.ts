@@ -19,18 +19,27 @@ export class ContainerComponent implements OnInit {
 
   habits: Habit[] = [];
   modalVisible: boolean = false;
+  modalAdding: boolean = false;
+  // @ts-ignore
+  habitToUpdate: Habit;
 
   @ViewChild('dynamic', { read: ViewContainerRef })
   private viewRef: ViewContainerRef | any;
 
   openModal(): void {
+    this.modalAdding = true;
     this.modalVisible = true;
   }
 
   addHabit(): void {
-      this.backendService.addHabit(this.modalComponent.habitForm.value);
+    this.backendService.addHabit(this.modalComponent.habitForm.value);
   }
 
+  update(habit: Habit): void {
+    this.habitToUpdate = habit;
+    this.modalAdding = false;
+    this.modalVisible = true;
+  }
 
   ngOnInit() {
     this.backendService.habits$.subscribe((habits: Habit[]) => {

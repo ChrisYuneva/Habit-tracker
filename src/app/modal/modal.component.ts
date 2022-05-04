@@ -13,7 +13,7 @@ export class ModalComponent implements OnInit {
   // @ts-ignore
   habit: Habit;
   @Input()
-  public adding = false;
+  public adding = true;
 
   @Output()
   public modalClosed: EventEmitter<void> = new EventEmitter<void>();
@@ -21,12 +21,8 @@ export class ModalComponent implements OnInit {
   @Output()
   public completedCard: EventEmitter<void> = new EventEmitter<void>();
 
-
-  public habitForm = new FormGroup({
-    name: new FormControl(''),
-    type: new FormControl(HABIT_TYPE.GOOD),
-    difficulty: new FormControl(1)
-  });
+  // @ts-ignore
+  public habitForm: FormGroup;
 
   constructor(private backendService: BackendService) {
   }
@@ -42,8 +38,28 @@ export class ModalComponent implements OnInit {
     this.close();
   }
 
-  ngOnInit() {
-
+  updateHabit(): void {
+    const habit = this.habitForm.value;
+    habit.id = this.habit.id;
+    this.backendService.updateHabit(habit);
+    this.completedCard.emit();
+    this.close();
   }
 
+  ngOnInit() {
+    console.log(this.adding);
+    if(this.adding) {
+      this.habitForm = new FormGroup({
+        name: new FormControl(''),
+        type: new FormControl(HABIT_TYPE.GOOD),
+        difficulty: new FormControl(1)
+      });
+    } else {
+      this.habitForm = new FormGroup({
+        name: new FormControl(this.habit.name),
+        type: new FormControl(this.habit.type),
+        difficulty: new FormControl(this.habit.difficulty)
+      });
+    }
+  }
 }

@@ -51,10 +51,11 @@
   width: 25px;
 }
 
-.test {
+.card-block {
   display: grid;
   grid-template: '. .';
-  column-gap: 5%;
+  column-gap: 100px;
+  row-gap: normal;
 }
 
 .form-add {

@@ -1,8 +1,10 @@
 .container-card {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-image: url("../../assets/background1.png");
-  padding: 50px 50px 0 50px;
+  padding-top: 50px;
 }
 
 .container-btn {
@@ -24,6 +26,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 100%;
+  padding-left: 6%;
+  padding-right: 6%;
  }
 
 .scale-container {
@@ -49,6 +54,7 @@
 .test {
   display: grid;
   grid-template: '. .';
+  column-gap: 5%;
 }
 
 .form-add {

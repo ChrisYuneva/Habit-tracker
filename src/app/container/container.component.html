@@ -12,21 +12,6 @@
   <div class="test">
     <app-card *ngFor="let habit of habits" [habit]="habit" [adding]="true" ></app-card>
   </div>
-
-<!--  <form [formGroup]="habitForm" (ngSubmit)="addHabit()" id="add" class="form-add" *ngIf="adding || editing">-->
-<!--    <label for="add">Description</label>-->
-<!--    <input type="text" formControlName="name">-->
-
-<!--    <label for="add">Type</label>-->
-<!--    <select name="select" class="custom-select mb-3" formControlName="type">-->
-<!--      <option value="0" selected>Полезная</option>-->
-<!--      <option value="1">Вредная</option>-->
-<!--    </select>-->
-
-<!--    <label for="add">Difficult</label>-->
-<!--    <input type="text" formControlName="difficulty">-->
-<!--    <button type="submit">save</button>-->
-<!--  </form>-->
 </section>
 
 <app-modal *ngIf="modalVisible" [adding]="true" (modalClosed)="modalVisible = false"></app-modal>

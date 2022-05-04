@@ -1,8 +1,6 @@
 import {Component, Input, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
-import {CardComponent} from "../card/card.component";
 import {BackendService} from "../services/backend.service";
-import {Habit, HABIT_TYPE} from "../models/habit.model";
-import {FormControl, FormGroup} from "@angular/forms";
+import {Habit} from "../models/habit.model";
 import {ModalComponent} from "../modal/modal.component";
 
 @Component({
@@ -16,16 +14,6 @@ export class ContainerComponent implements OnInit {
     // @ts-ignore
   habit: Habit;
 
-  // @ts-ignore
-  // @Input()
-  // test: habitForm;
-
-  // public habitForm = new FormGroup({
-  //   name: new FormControl(''),
-  //   type: new FormControl(HABIT_TYPE.GOOD),
-  //   difficulty: new FormControl(1)
-  // });
-
   constructor(private backendService: BackendService, private modalComponent: ModalComponent) {
   }
 
@@ -37,14 +25,6 @@ export class ContainerComponent implements OnInit {
 
   openModal(): void {
     this.modalVisible = true;
-  }
-
-  showDynamicComponent(): void {
-    this.viewRef.createComponent(CardComponent);
-  }
-
-  removeDynamicComponent(): void {
-    this.viewRef.detach();
   }
 
   addHabit(): void {

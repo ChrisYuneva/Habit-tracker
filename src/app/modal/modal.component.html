@@ -14,11 +14,10 @@
       </select>
 
       <h6 class="popup-title">Сложность:</h6>
-      <input class="form-control modal-custom-input" type="number" size="3" name="num" min="1" max="5" [value]="this.habit.difficulty">
+      <input class="form-control modal-custom-input" type="number" size="5" name="num" min="1" max="5" [value]="this.habit.difficulty">
     </form>
   </div>
   <div class="modal-footer modal-container">
-    <button type="button" class="btn btn-outline-dark">Удалить привычку</button>
     <button type="button" class="btn btn-outline-dark modal-save" (click)="adding ? addHabit() : updateHabit()">Сохранить</button>
   </div>
 </div>

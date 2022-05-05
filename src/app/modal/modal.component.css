@@ -8,6 +8,7 @@
 }
 
 .modal-container {
+  justify-content: center;
   background-color: #F2F4F9;
 }
 

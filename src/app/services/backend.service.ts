@@ -1,7 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Habit, HABIT_TYPE} from "../models/habit.model";
-import {BehaviorSubject, Observable} from "rxjs";
-import {FormControl, FormGroup} from "@angular/forms";
+import {BehaviorSubject} from "rxjs";
 
 // Observable - мы можем на него подписаться и всё
 // Subject - observable + положить туда что то
@@ -16,7 +15,7 @@ export class BackendService {
       id: 1,
       name: "Бегать по утрам",
       type: HABIT_TYPE.GOOD,
-      difficulty: 2
+      difficulty: 5
     },
     {
       id: 2,
@@ -43,6 +42,7 @@ export class BackendService {
   }
 
   updateHabit(habit: Habit) {
+    // почему updatehabit - это объект, если метод find возвращает значение?
     const updatedHabit = this.habits.find(h => h.id === habit.id);
     updatedHabit!.name = habit.name;
     updatedHabit!.difficulty = habit.difficulty;
@@ -50,10 +50,10 @@ export class BackendService {
     this.habits$.next(this.habits);
     }
 
+    // просто берем и создаем массив с объектами, id которых не приходит в аргументе? то есть остаётся то, что мы не удаляем? а что дальше? заново рендерится?
+
   deleteHabit(id: number) {
     this.habits = this.habits.filter(habit => habit.id !== id);
     this.habits$.next(this.habits);
   }
-
-
 }

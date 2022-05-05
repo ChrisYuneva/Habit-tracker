@@ -145,3 +145,11 @@
   padding: 2px 7px 2px 7px;
   margin-left: 37%;
 }
+
+.container-btn {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-edit {
+}

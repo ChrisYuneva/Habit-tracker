@@ -12,6 +12,7 @@ export class ModalComponent implements OnInit {
   @Input()
   // @ts-ignore
   habit: Habit;
+
   @Input()
   public adding = true;
 
@@ -47,7 +48,6 @@ export class ModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.adding);
     if(this.adding) {
       this.habitForm = new FormGroup({
         name: new FormControl(''),

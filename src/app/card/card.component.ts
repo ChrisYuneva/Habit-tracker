@@ -1,16 +1,15 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Habit} from "../models/habit.model";
 import {BackendService} from "../services/backend.service";
-import {ContainerComponent} from "../container/container.component";
-import {ModalComponent} from "../modal/modal.component";
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent implements OnInit, OnChanges {
+export class CardComponent implements OnInit {
   count: number = 0;
+
 
   @Input()
   // @ts-ignore
@@ -22,22 +21,19 @@ export class CardComponent implements OnInit, OnChanges {
   @Output()
   public completedCard: EventEmitter<void> = new EventEmitter<void>();
 
-
   @Output()
   public edit: EventEmitter<void> = new EventEmitter<void>();
 
-  // // @ts-ignore
-  // @Input()
-  // test: habitForm;
+  @Output()
+  public health: EventEmitter<void> = new EventEmitter<void>();
+
+  @Output()
+  public experience: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(private backendService: BackendService) {
   }
 
   ngOnInit(): void {
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
   }
 
   plus(): void {
@@ -48,16 +44,19 @@ export class CardComponent implements OnInit, OnChanges {
     this.count===0?this.count:this.count--;
   }
 
+  // healthF(): void {
+  //   this.healthCount++;
+  //   console.log(this.healthCount)
+  // }
+
+  healthF(): void {
+    this.health.emit()
+}
+  healthChange(change:any): void {
+    this.health.emit(change)
+  }
+
   deleteHabit(id: number): void {
-    console.log(this.habit);
     this.backendService.deleteHabit(this.habit.id);
   }
-
-  upDate(): void {
-    this.completedCard.emit()
-  }
-
-  // update(): void {
-  //   this.backendService.updateHabit(this.habit.id);
-  // }
 }

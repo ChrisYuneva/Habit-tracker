@@ -1,7 +1,7 @@
-import {Component, Input, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {BackendService} from "../services/backend.service";
 import {Habit} from "../models/habit.model";
-import {ModalComponent} from "../modal/modal.component";
+import {CardComponent} from "../card/card.component";
 
 @Component({
   selector: 'app-container',
@@ -14,31 +14,44 @@ export class ContainerComponent implements OnInit {
     // @ts-ignore
   habit: Habit;
 
-  constructor(private backendService: BackendService, private modalComponent: ModalComponent) {
+  constructor(private backendService: BackendService, public cardComponent: CardComponent) {
   }
 
   habits: Habit[] = [];
   modalVisible: boolean = false;
   modalAdding: boolean = false;
+  healthNum: number = 0;
+  healthCurrently: number = 0;
+  healthChange: boolean = false;
   // @ts-ignore
   habitToUpdate: Habit;
 
-  @ViewChild('dynamic', { read: ViewContainerRef })
-  private viewRef: ViewContainerRef | any;
-
-  openModal(): void {
+  addHabit(): void {
     this.modalAdding = true;
     this.modalVisible = true;
   }
 
-  addHabit(): void {
-    this.backendService.addHabit(this.modalComponent.habitForm.value);
-  }
-
   update(habit: Habit): void {
+    // зачем нужно указывать, что habitToUpdate - это habit?
     this.habitToUpdate = habit;
     this.modalAdding = false;
     this.modalVisible = true;
+  }
+
+  health(change: any, habitDif: number): void {
+    this.healthChange = change;
+    this.healthNum = habitDif;
+    // if(habitDif<0) {
+    //   habitDif==0;
+    // }
+    // else {
+    //   change?habitDif++:habitDif--;
+    if(change) {
+      this.healthCurrently = this.healthCurrently+habitDif;
+    }
+    else {
+      this.healthCurrently -= habitDif;
+    }
   }
 
   ngOnInit() {

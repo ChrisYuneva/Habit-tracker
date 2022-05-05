@@ -1,27 +1,30 @@
 <div class="card">
   <div class="card-description">
     <div class="card-description-sm-container">
-      <button (click)="minus()" class="card-button">
+      <button (click)="healthChange(false)" class="card-button">
         <img src="../../assets/minus.svg"/>
       </button>
       <h2 data-toggle="modal" data-target="#exampleModal" name="fieldName">{{habit.name}}</h2>
-      <button (click)="plus()" class="card-button">
+      <h3>{{habit.difficulty}}</h3>
+      <button (click)="healthChange(true)" class="card-button">
         <img src="../../assets/plus.svg"/>
       </button>
-      <button type="button" class="btn btn-outline-dark" (click)="deleteHabit(this.habit.id)">Удалить привычку</button>
-      <button type="button" class="btn btn-outline-dark" (click)="edit.emit()">Редактировать привычку</button>
+      <div class="container-btn">
+        <button type="button" class="btn btn-outline-dark btn-edit" (click)="edit.emit()">Редактировать</button>
+        <button type="button" class="btn btn-outline-dark" (click)="deleteHabit(this.habit.id)">Удалить</button>
+      </div>
     </div>
-    <div class="scale">
-      <div class="scale-filling" *ngIf="count>0"></div>
-      <div class="scale-filling" *ngIf="count>1"></div>
-      <div class="scale-filling" *ngIf="count>2"></div>
-      <div class="scale-filling" *ngIf="count>3"></div>
-      <div class="scale-filling" *ngIf="count>4"></div>
-      <div class="scale-filling" *ngIf="count>5"></div>
-      <div class="scale-filling" *ngIf="count>6"></div>
-      <div class="scale-filling" *ngIf="count>7"></div>
-    </div>
-    <span>{{count}}/8</span>
+<!--    <div class="scale">-->
+<!--      <div class="scale-filling" *ngIf="count>0"></div>-->
+<!--      <div class="scale-filling" *ngIf="count>1"></div>-->
+<!--      <div class="scale-filling" *ngIf="count>2"></div>-->
+<!--      <div class="scale-filling" *ngIf="count>3"></div>-->
+<!--      <div class="scale-filling" *ngIf="count>4"></div>-->
+<!--      <div class="scale-filling" *ngIf="count>5"></div>-->
+<!--      <div class="scale-filling" *ngIf="count>6"></div>-->
+<!--      <div class="scale-filling" *ngIf="count>7"></div>-->
+<!--    </div>-->
+<!--    <span>{{count}}/8</span>-->
   </div>
 </div>
 

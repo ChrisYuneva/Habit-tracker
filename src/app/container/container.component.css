@@ -67,3 +67,12 @@
 .blur {
   filter: blur(3px);
 }
+
+.test {
+  background-color: #7F8FBB;
+}
+
+progress::-webkit-progress-value {
+  background: #7F8FBB;
+  border-radius: 5px;
+}

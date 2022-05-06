@@ -13,6 +13,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import {CommonModule} from "@angular/common";
 import { ModalComponent } from './modal/modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbdProgressbarBasicComponent } from './ngbd-progressbar-basic/ngbd-progressbar-basic.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AuthorizationComponent,
     StatisticsComponent,
     ModalComponent,
+    NgbdProgressbarBasicComponent,
   ],
   entryComponents: [ CardComponent ],
   imports: [

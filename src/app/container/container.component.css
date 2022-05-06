@@ -67,7 +67,3 @@
 .blur {
   filter: blur(3px);
 }
-
-input[type=range] {
-  pointer-events: none;
-}

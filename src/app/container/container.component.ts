@@ -11,8 +11,7 @@ import {CardComponent} from "../card/card.component";
 
 export class ContainerComponent implements OnInit {
   @Input()
-    // @ts-ignore
-  habit: Habit;
+  habit!: Habit;
 
   constructor(private backendService: BackendService, public cardComponent: CardComponent) {
   }
@@ -20,11 +19,9 @@ export class ContainerComponent implements OnInit {
   habits: Habit[] = [];
   modalVisible: boolean = false;
   modalAdding: boolean = false;
-  healthNum: number = 0;
-  healthCurrently: number = 0;
+  healthCount: number = 0;
   healthChange: boolean = false;
-  // @ts-ignore
-  habitToUpdate: Habit;
+  habitToUpdate!: Habit;
 
   addHabit(): void {
     this.modalAdding = true;
@@ -32,25 +29,23 @@ export class ContainerComponent implements OnInit {
   }
 
   update(habit: Habit): void {
-    // зачем нужно указывать, что habitToUpdate - это habit?
     this.habitToUpdate = habit;
     this.modalAdding = false;
     this.modalVisible = true;
   }
 
-  health(change: any, habitDif: number): void {
+  healthCounter(change: any, complexity: number): void {
     this.healthChange = change;
-    this.healthNum = habitDif;
-    // if(habitDif<0) {
-    //   habitDif==0;
-    // }
-    // else {
-    //   change?habitDif++:habitDif--;
     if(change) {
-      this.healthCurrently = this.healthCurrently+habitDif;
+      this.healthCount += complexity;
     }
     else {
-      this.healthCurrently -= habitDif;
+      if(this.healthCount < 0) {
+        this.healthCount = 0;
+      }
+      else {
+        this.healthCount -= complexity;
+      }
     }
   }
 

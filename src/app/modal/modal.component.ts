@@ -10,11 +10,11 @@ import {BackendService} from "../services/backend.service";
 })
 export class ModalComponent implements OnInit {
   @Input()
-  // @ts-ignore
-  habit: Habit;
+  habit!: Habit;
 
+  // почему adding - это инпут, а не аутпут?
   @Input()
-  public adding = true;
+  public adding = false;
 
   @Output()
   public modalClosed: EventEmitter<void> = new EventEmitter<void>();
@@ -22,8 +22,7 @@ export class ModalComponent implements OnInit {
   @Output()
   public completedCard: EventEmitter<void> = new EventEmitter<void>();
 
-  // @ts-ignore
-  public habitForm: FormGroup;
+  public habitForm!: FormGroup;
 
   constructor(private backendService: BackendService) {
   }

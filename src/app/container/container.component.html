@@ -7,7 +7,7 @@
       </div>
       <span>0/8 здоровье</span>
     </div>
-    <span>{{healthNum}}</span>
+    <span>{{healthCount}}</span>
     <div class="scale-container">
       <div class="scale">
         <div class="scale-filling"></div>
@@ -18,7 +18,7 @@
         <button class="container-btn" (click)="addHabit()">Добавить привычку</button>
   </div>
   <div class="card-block">
-    <app-card *ngFor="let habit of habits" [habit]="habit" (edit)="update(habit)" (health)="health($event, this.habit.difficulty)"></app-card>
+    <app-card *ngFor="let habit of habits" [habit]="habit" (edit)="update(habit)" (health)="healthCounter($event, this.habit.difficulty)"></app-card>
   </div>
 </section>
 

@@ -10,10 +10,8 @@ import {BackendService} from "../services/backend.service";
 export class CardComponent implements OnInit {
   count: number = 0;
 
-
   @Input()
-  // @ts-ignore
-  habit: Habit;
+  habit!: Habit;
 
   @Input()
   public adding = false;
@@ -44,15 +42,8 @@ export class CardComponent implements OnInit {
     this.count===0?this.count:this.count--;
   }
 
-  // healthF(): void {
-  //   this.healthCount++;
-  //   console.log(this.healthCount)
-  // }
-
-  healthF(): void {
-    this.health.emit()
-}
   healthChange(change:any): void {
+    // emit генерирует событие, содержащее переданное значение
     this.health.emit(change)
   }
 

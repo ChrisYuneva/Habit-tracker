@@ -19,8 +19,9 @@ export class ContainerComponent implements OnInit {
   habits: Habit[] = [];
   modalVisible: boolean = false;
   modalAdding: boolean = false;
-  healthCount: number = 0;
-  healthChange: boolean = false;
+  healthCount: number = 50;
+  experienceCount: number = 0;
+  scaleChange: boolean = false;
   habitToUpdate!: Habit;
 
   addHabit(): void {
@@ -34,20 +35,24 @@ export class ContainerComponent implements OnInit {
     this.modalVisible = true;
   }
 
-  healthCounter(change: any, complexity: number): void {
-    this.healthChange = change;
+  scaleCounter(change: any, complexity: number): void {
     if(change) {
-      this.healthCount += complexity;
+      this.experienceCount += complexity;
     }
     else {
-      if(this.healthCount < 0) {
-        this.healthCount = 0;
-      }
-      else {
-        this.healthCount -= complexity;
-      }
+      this.healthCount -= complexity;
+    }
+    if(this.healthCount <= 0) {
+      this.healthCount = 0;
     }
   }
+
+
+
+
+  // minusCounter(change: any, complexity: number) {
+  //
+  // }
 
   ngOnInit() {
     this.backendService.habits$.subscribe((habits: Habit[]) => {

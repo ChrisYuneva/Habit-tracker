@@ -42,15 +42,12 @@ export class BackendService {
   }
 
   updateHabit(habit: Habit) {
-    // почему updatehabit - это объект, если метод find возвращает значение?
     const updatedHabit = this.habits.find(h => h.id === habit.id);
     updatedHabit!.name = habit.name;
     updatedHabit!.difficulty = habit.difficulty;
     updatedHabit!.type = habit.type;
     this.habits$.next(this.habits);
     }
-
-    // просто берем и создаем массив с объектами, id которых не приходит в аргументе? то есть остаётся то, что мы не удаляем? а что дальше? заново рендерится?
 
   deleteHabit(id: number) {
     this.habits = this.habits.filter(habit => habit.id !== id);

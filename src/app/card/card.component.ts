@@ -25,9 +25,6 @@ export class CardComponent implements OnInit {
   @Output()
   public health: EventEmitter<void> = new EventEmitter<void>();
 
-  @Output()
-  public experience: EventEmitter<void> = new EventEmitter<void>();
-
   constructor(private backendService: BackendService) {
   }
 
@@ -44,7 +41,7 @@ export class CardComponent implements OnInit {
 
   healthChange(change:any): void {
     // emit генерирует событие, содержащее переданное значение
-    this.health.emit(change)
+    this.health.emit(change);
   }
 
   deleteHabit(id: number): void {

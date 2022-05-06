@@ -2,11 +2,12 @@
 <section class="container-card" [ngClass]="{'blur' : modalVisible}">
   <div class="sm-scale">
     <div class="scale-container">
-      <div class="scale">
-        <div class="scale-filling"></div>
-      </div>
-      <span>0/8 здоровье</span>
+<!--      <div class="scale">-->
+<!--        <div class="scale-filling"></div>-->
+<!--      </div>-->
+<!--      <span>0/8 здоровье</span>-->
     </div>
+    <input type="range" min="1" max="50" value={{healthCount}}>
     <span>{{healthCount}}</span>
     <div class="scale-container">
       <div class="scale">
@@ -14,11 +15,11 @@
       </div>
       <span>0/8 опыт</span>
     </div>
-    <span>1</span>
+    <span>{{experienceCount}}</span>
         <button class="container-btn" (click)="addHabit()">Добавить привычку</button>
   </div>
   <div class="card-block">
-    <app-card *ngFor="let habit of habits" [habit]="habit" (edit)="update(habit)" (health)="healthCounter($event, this.habit.difficulty)"></app-card>
+    <app-card *ngFor="let habit of habits" [habit]="habit" (edit)="update(habit)" (health)="scaleCounter($event, this.habit.difficulty)"></app-card>
   </div>
 </section>
 

@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ContainerComponent } from './container/container.component';
 import { CardComponent } from './card/card.component';
-import { UserComponent } from './user/user.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthorizationComponent } from './authorization/authorization.component';
 import { StatisticsComponent } from './statistics/statistics.component';
@@ -20,7 +19,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HeaderComponent,
     ContainerComponent,
     CardComponent,
-    UserComponent,
     AuthorizationComponent,
     StatisticsComponent,
     ModalComponent,

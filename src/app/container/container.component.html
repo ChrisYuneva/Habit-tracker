@@ -1,26 +1,29 @@
 <app-header></app-header>
 <section class="container-card" [ngClass]="{'blur' : modalVisible}">
   <div class="sm-scale">
-    <div class="scale-container">
-<!--      <div class="scale">-->
-<!--        <div class="scale-filling"></div>-->
-<!--      </div>-->
-<!--      <span>0/8 здоровье</span>-->
-    </div>
-      <progress class="test" max="50" [value]="healthCount"></progress>
-    <span>{{healthCount}}</span>
-    <div class="scale-container">
-      <div class="scale">
-        <div class="scale-filling"></div>
+    <div class="scale-des">
+
+      <div class="scale-block">
+        <progress max="50" [value]="healthCount"></progress>
+        <span class="span-count">{{healthCount}}/50</span>
       </div>
-      <span>0/8 опыт</span>
+      <span class="span-des">Здоровье</span>
+      <div class="scale-block">
+      <progress max="50" [value]="experienceCount"></progress>
+        <span class="span-count">{{experienceCount}}</span>
+      </div>
+      <span class="span-des">Опыт</span>
+
     </div>
-    <span>{{experienceCount}}</span>
-        <button class="container-btn" (click)="addHabit()">Добавить привычку</button>
+
+
+    <button class="container-btn" (click)="addHabit()">Добавить привычку</button>
   </div>
   <div class="card-block">
-    <app-card *ngFor="let habit of habits" [habit]="habit" (edit)="update(habit)" (health)="scaleCounter($event, this.habit.difficulty)"></app-card>
+    <app-card *ngFor="let habit of habits" [habit]="habit" (edit)="update(habit)"
+              (health)="scaleCounter($event, this.habit.difficulty)"></app-card>
   </div>
 </section>
 
-<app-modal *ngIf="modalVisible" [adding]="modalAdding" [habit]="habitToUpdate" (modalClosed)="modalVisible = false"></app-modal>
+<app-modal *ngIf="modalVisible" [adding]="modalAdding" [habit]="habitToUpdate"
+           (modalClosed)="modalVisible = false"></app-modal>

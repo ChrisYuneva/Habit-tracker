@@ -18,7 +18,7 @@
   outline: none;
   border: none;
   border-radius: 5px;
-  color: #FFFFFF;
+  color: #515455;
   background: linear-gradient(0deg, #92BDDD 0%, #B2B1D2 100%);
 }
 
@@ -26,13 +26,15 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   padding-left: 6%;
   padding-right: 6%;
  }
 
 .scale-container {
-
+  display: flex;
+  flex-direction: column;
 }
 
 .scale{
@@ -68,11 +70,52 @@
   filter: blur(3px);
 }
 
-.test {
-  background-color: #7F8FBB;
+progress[value] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+progress {
+  width: 200px;
+  height: 24px;
+  margin-right: 10px;
 }
 
 progress::-webkit-progress-value {
-  background: #7F8FBB;
-  border-radius: 5px;
+  /*background: #7F8FBB;*/
+  /*background: rgba(148, 164, 193, 0.95);*/
+  background-color: #B2B1D2;
 }
+
+progress[value]::-webkit-progress-bar {
+  border: 1px solid #5065A0;
+  background-color: #eee;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress[value]::-webkit-progress-value {
+  background-color: #B2B1D2;
+}
+
+.scale-des {
+  display: flex;
+  flex-direction: column;
+}
+
+.scale-block {
+  display: flex;
+  flex-direction: row;
+}
+
+.span-des {
+  color: #515455;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.span-count {
+  color: #515455;
+}
+
+

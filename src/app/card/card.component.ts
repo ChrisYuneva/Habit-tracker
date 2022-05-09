@@ -32,14 +32,14 @@ export class CardComponent implements OnInit {
   }
 
   plus(): void {
-    this.count===8?this.count:this.count++;
+    this.count === 8 ? this.count : this.count++;
   }
 
   minus(): void {
-    this.count===0?this.count:this.count--;
+    this.count === 0 ? this.count : this.count--;
   }
 
-  healthChange(change:any): void {
+  healthChange(change: any): void {
     // emit генерирует событие, содержащее переданное значение
     this.health.emit(change);
   }

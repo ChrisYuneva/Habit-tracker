@@ -47,7 +47,7 @@ export class ModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(this.adding) {
+    if (this.adding) {
       this.habitForm = new FormGroup({
         name: new FormControl(''),
         type: new FormControl(HABIT_TYPE.GOOD),

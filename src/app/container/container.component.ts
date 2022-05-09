@@ -36,18 +36,15 @@ export class ContainerComponent implements OnInit {
   }
 
   scaleCounter(change: any, complexity: number): void {
-    if(change) {
+    if (change) {
       this.experienceCount += complexity;
-    }
-    else {
+    } else {
       this.healthCount -= complexity;
     }
-    if(this.healthCount <= 0) {
+    if (this.healthCount <= 0) {
       this.healthCount = 0;
     }
   }
-
-
 
 
   // minusCounter(change: any, complexity: number) {

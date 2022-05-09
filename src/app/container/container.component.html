@@ -2,21 +2,17 @@
 <section class="container-card" [ngClass]="{'blur' : modalVisible}">
   <div class="sm-scale">
     <div class="scale-des">
-
       <div class="scale-block">
         <progress max="50" [value]="healthCount"></progress>
         <span class="span-count">{{healthCount}}/50</span>
       </div>
       <span class="span-des">Здоровье</span>
       <div class="scale-block">
-      <progress max="50" [value]="experienceCount"></progress>
+        <progress role="progressbar" max="50" [value]="experienceCount"></progress>
         <span class="span-count">{{experienceCount}}</span>
       </div>
       <span class="span-des">Опыт</span>
-
     </div>
-
-
     <button class="container-btn" (click)="addHabit()">Добавить привычку</button>
   </div>
   <div class="card-block">
@@ -24,6 +20,5 @@
               (health)="scaleCounter($event, this.habit.difficulty)"></app-card>
   </div>
 </section>
-
 <app-modal *ngIf="modalVisible" [adding]="modalAdding" [habit]="habitToUpdate"
            (modalClosed)="modalVisible = false"></app-modal>

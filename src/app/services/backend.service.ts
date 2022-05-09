@@ -31,10 +31,9 @@ export class BackendService {
   }
 
   addHabit(habit: Habit) {
-    if(this.habits.length === 0) {
+    if (this.habits.length === 0) {
       habit.id = 1;
-    }
-    else {
+    } else {
       habit.id = this.habits[this.habits.length - 1].id + 1;
     }
     this.habits.push(habit);
@@ -47,7 +46,7 @@ export class BackendService {
     updatedHabit!.difficulty = habit.difficulty;
     updatedHabit!.type = habit.type;
     this.habits$.next(this.habits);
-    }
+  }
 
   deleteHabit(id: number) {
     this.habits = this.habits.filter(habit => habit.id !== id);

@@ -9,13 +9,15 @@ import {BackendService} from "../services/backend.service";
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent implements OnInit {
+
+  // Передача данных в дочерний компонент
   @Input()
   habit!: Habit;
 
-  // почему adding - это инпут, а не аутпут?
   @Input()
   public adding = false;
 
+  // Привязка к событиям дочернего компонента
   @Output()
   public modalClosed: EventEmitter<void> = new EventEmitter<void>();
 

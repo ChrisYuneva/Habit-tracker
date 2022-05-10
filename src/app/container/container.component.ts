@@ -44,12 +44,10 @@ export class ContainerComponent implements OnInit {
     if (this.healthCount <= 0) {
       this.healthCount = 0;
     }
+    if(this.experienceCount >= 50) {
+      this.experienceCount = 50;
+    }
   }
-
-
-  // minusCounter(change: any, complexity: number) {
-  //
-  // }
 
   ngOnInit() {
     this.backendService.habits$.subscribe((habits: Habit[]) => {

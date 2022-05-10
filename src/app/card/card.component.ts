@@ -10,12 +10,14 @@ import {BackendService} from "../services/backend.service";
 export class CardComponent implements OnInit {
   count: number = 0;
 
+  // Передача данных в дочерний компонент
   @Input()
   habit!: Habit;
 
   @Input()
   public adding = false;
 
+  // Привязка к событиям дочернего компонента
   @Output()
   public completedCard: EventEmitter<void> = new EventEmitter<void>();
 
@@ -23,7 +25,7 @@ export class CardComponent implements OnInit {
   public edit: EventEmitter<void> = new EventEmitter<void>();
 
   @Output()
-  public health: EventEmitter<void> = new EventEmitter<void>();
+  public scale: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(private backendService: BackendService) {
   }
@@ -39,9 +41,9 @@ export class CardComponent implements OnInit {
     this.count === 0 ? this.count : this.count--;
   }
 
-  healthChange(change: any): void {
+  scaleChange(change: any): void {
     // emit генерирует событие, содержащее переданное значение
-    this.health.emit(change);
+    this.scale.emit(change);
   }
 
   deleteHabit(id: number): void {

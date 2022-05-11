@@ -1,3 +1,7 @@
+* {
+  color: #515455;
+}
+
 .container-card {
   display: flex;
   flex-direction: column;
@@ -25,7 +29,7 @@
 .sm-scale {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
   padding-left: 6%;
@@ -116,4 +120,9 @@ progress[role]::-webkit-progress-value {
 
 .span-count {
   color: #515455;
+}
+
+.level-block {
+  display: flex;
+  flex-direction: row;
 }

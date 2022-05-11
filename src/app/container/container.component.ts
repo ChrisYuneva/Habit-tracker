@@ -18,12 +18,14 @@ export class ContainerComponent implements OnInit {
 
   habits: Habit[] = [];
   modalVisible: boolean = false;
+  warningVisible: boolean = false;
   modalAdding: boolean = false;
   habitToUpdate!: Habit;
   healthCount: number = Number(JSON.parse(localStorage.getItem('Health') || '50'));
   experienceCount: number = Number(JSON.parse(localStorage.getItem('Experience') || '0'));
   scaleChange: boolean = false;
   level: number = Number(JSON.parse(localStorage.getItem('Level') || '1'));
+  warningType: boolean = false;
 
   addHabit(): void {
     this.modalAdding = true;
@@ -42,22 +44,26 @@ export class ContainerComponent implements OnInit {
     } else {
       this.healthCount -= complexity;
     }
-    if (this.healthCount <= 0) {
+    if (this.healthCount < 0) {
       this.healthCount = 0;
+      this.warningVisible = true;
+      this.warningType = false;
     }
     if (this.experienceCount >= 50) {
       this.experienceCount = 0;
       this.level++;
       this.healthCount = 50;
+      this.warningType = true;
+      this.warningVisible = true;
     }
-    this.setParam()
+    this.setParam();
   }
 
   setParam(): void {
     localStorage.setItem('Health', JSON.stringify(this.healthCount));
     localStorage.setItem('Experience', JSON.stringify(this.experienceCount));
     localStorage.setItem('Level', JSON.stringify(this.level));
-}
+  }
 
   ngOnInit() {
     this.backendService.habits$.subscribe((habits: Habit[]) => {

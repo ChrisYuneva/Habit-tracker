@@ -13,6 +13,7 @@ import {CommonModule} from "@angular/common";
 import { ModalComponent } from './modal/modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ModalWarningComponent } from './modal-warning/modal-warning.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     StatisticsComponent,
     ModalComponent,
     NotFoundComponent,
+    ModalWarningComponent,
   ],
   entryComponents: [ CardComponent ],
   imports: [

@@ -1,11 +1,13 @@
+* {
+  color: #515455;
+}
+
 .authorization-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background: linear-gradient(0deg, #92BDDD 0%, #B2B1D2 100%);
-  /*background: linear-gradient(180deg, #B3B4D4 0%, #B5BED4 13.02%, #B9CDD4 42.97%, #BBDEE5 100%);*/
-  /*background-image: url("../../assets/aut-7.png");*/
 }
 
 .authorization-form {
@@ -18,25 +20,20 @@
 }
 
 .authorization-form label {
-  font-size: 20px;
-  color: #454545;
+  font-size: 24px;
 }
 
 .authorization-input {
   border-top: none;
   border-right: none;
   border-left: none;
-  border-bottom: 2px solid #454545;
+  border-bottom: 2px solid #515455;
   margin-bottom: 20px;
-  color: #454545;
-}
-
-.authorization-input::placeholder {
-  color: #454545;
+  font-size: 20px;
 }
 
 .authorization-input:focus-visible {
-  border-bottom: 2px solid #454545;
+  border-bottom: 2px solid #515455;
   outline: none;
 }
 
@@ -51,5 +48,5 @@
   border-radius: 5px;
   background: linear-gradient(0deg, #92BDDD 0%, #B2B1D2 100%);
   margin-top: 25%;
-  color: #000000;
+  color: #515455;
 }

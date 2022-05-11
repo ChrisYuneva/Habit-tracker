@@ -1,0 +1,22 @@
+.modal-center {
+  position: fixed;
+  top: 26%;
+  left: 35%;
+  width: 470px;
+  border: 2px solid #515455;
+  /*background-color: #C1BFE9;*/
+  background-color: #C8C7EF;
+  border-radius: 7px;
+}
+
+.warning-head h2 {
+  padding-left: 41%;
+}
+
+.warning-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 15px 10px 15px;
+}

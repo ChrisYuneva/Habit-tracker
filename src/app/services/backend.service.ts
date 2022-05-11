@@ -43,8 +43,8 @@ export class BackendService {
   updateHabit(habit: Habit) {
     const updatedHabit = this.habits.find(h => h.id === habit.id);
     updatedHabit!.name = habit.name;
-    updatedHabit!.difficulty = habit.difficulty;
     updatedHabit!.type = habit.type;
+    updatedHabit!.difficulty = habit.difficulty;
     this.habits$.next(this.habits);
   }
 

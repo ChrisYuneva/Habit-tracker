@@ -1,7 +1,7 @@
-<div class="modal-center">
+<div class="modal-center" [ngClass]="{'congratulation': warningType, 'caution': warningType==false}">
   <div class="modal-header warning-head">
     <h2>{{alert}}</h2>
-    <button type="button" class="btn-close modal-cls" aria-label="Close" (click)="close()"></button>
+    <button type="button" class="btn-close warning-cls" aria-label="Close" (click)="close()"></button>
   </div>
   <div class="modal-body modal-container warning-block">
     <h4>{{alertContent}}</h4>

@@ -5,7 +5,7 @@
   width: 470px;
   border: 2px solid #515455;
   /*background-color: #C1BFE9;*/
-  background-color: #C8C7EF;
+  /*background-color: #C8C7EF;*/
   border-radius: 7px;
 }
 
@@ -19,4 +19,16 @@
   justify-content: center;
   align-items: center;
   margin: 10px 15px 10px 15px;
+}
+
+.congratulation {
+  background-color: #C8C7EF;
+}
+
+.caution {
+  background-color: #7F8FBB;
+}
+
+.warning-cls:focus {
+  box-shadow: none;
 }

@@ -10,20 +10,20 @@ import {BehaviorSubject} from "rxjs";
 })
 
 export class BackendService {
-  public habits: Habit[] = [
-    {
-      id: 1,
-      name: "Бегать по утрам",
-      type: HABIT_TYPE.GOOD,
-      difficulty: 5
-    },
-    {
-      id: 2,
-      name: "Пить 2л воды в день",
-      type: HABIT_TYPE.GOOD,
-      difficulty: 2
-    }
-  ];
+  public habits: Habit[] = JSON.parse(localStorage.getItem('Habit') || '[]');
+  //   {
+  //     id: 1,
+  //     name: "Бегать по утрам",
+  //     type: HABIT_TYPE.GOOD,
+  //     difficulty: 5
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Пить 2л воды в день",
+  //     type: HABIT_TYPE.GOOD,
+  //     difficulty: 2
+  //   }
+  // ];
   public habits$: BehaviorSubject<Habit[]> = new BehaviorSubject<Habit[]>(this.habits);
 
   getHabits(): BehaviorSubject<Habit[]> {
@@ -37,6 +37,7 @@ export class BackendService {
       habit.id = this.habits[this.habits.length - 1].id + 1;
     }
     this.habits.push(habit);
+    this.setHabit();
     this.habits$.next(this.habits);
   }
 
@@ -45,11 +46,17 @@ export class BackendService {
     updatedHabit!.name = habit.name;
     updatedHabit!.type = habit.type;
     updatedHabit!.difficulty = habit.difficulty;
+    this.setHabit();
     this.habits$.next(this.habits);
   }
 
   deleteHabit(id: number) {
     this.habits = this.habits.filter(habit => habit.id !== id);
+    this.setHabit();
     this.habits$.next(this.habits);
+  }
+
+  setHabit(): void {
+    localStorage.setItem('Habit', JSON.stringify(this.habits));
   }
 }

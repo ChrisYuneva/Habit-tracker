@@ -33,15 +33,7 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  plus(): void {
-    this.count === 8 ? this.count : this.count++;
-  }
-
-  minus(): void {
-    this.count === 0 ? this.count : this.count--;
-  }
-
-  scaleChange(change: any): void {
+  scaleChange(change: boolean): void {
     // emit генерирует событие, содержащее переданное значение
     this.scale.emit(change);
   }

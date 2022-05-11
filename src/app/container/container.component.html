@@ -9,10 +9,11 @@
       <span class="span-des">Здоровье</span>
       <div class="scale-block">
         <progress role="progressbar" max="50" [value]="experienceCount"></progress>
-        <span class="span-count">{{experienceCount}}</span>
+        <span class="span-count">{{experienceCount}}/50</span>
       </div>
       <span class="span-des">Опыт</span>
     </div>
+    <h2>{{level}}</h2>
     <button class="container-btn" (click)="addHabit()">Добавить привычку</button>
   </div>
   <div class="card-block">

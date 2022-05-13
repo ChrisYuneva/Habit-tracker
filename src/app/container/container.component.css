@@ -5,10 +5,11 @@
 .container-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  min-height: calc(100vh - 70px);
   align-items: center;
   background-image: url("../../assets/background1.png");
   padding-top: 50px;
+  background-attachment: fixed;
 }
 
 .container-btn {
@@ -34,6 +35,7 @@
   width: 100%;
   padding-left: 6%;
   padding-right: 6%;
+  margin-bottom: 20px;
 }
 
 .scale-container {

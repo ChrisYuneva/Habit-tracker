@@ -13,6 +13,8 @@
 }
 
 .modal-container {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   background-color: #F2F4F9;
 }
@@ -39,6 +41,17 @@
 }
 
 .modal-save:hover {
+  background: linear-gradient(0deg, #92BDDD 0%, #B2B1D2 100%);
+  color: #515455;
+  border: none;
+}
+
+.modal-save:focus {
+  box-shadow: none;
+}
+
+.modal-save:active:not(:disabled):not(.disabled):active {
+  box-shadow: none;
   background: linear-gradient(0deg, #92BDDD 0%, #B2B1D2 100%);
   color: #515455;
   border: none;

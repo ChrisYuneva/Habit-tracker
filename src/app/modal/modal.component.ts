@@ -26,6 +26,9 @@ export class ModalComponent implements OnInit {
 
   public habitForm!: FormGroup;
 
+  invalid: boolean = false;
+  warning: string = '';
+
   constructor(private backendService: BackendService) {
   }
 
@@ -35,17 +38,33 @@ export class ModalComponent implements OnInit {
 
   addHabit(): void {
     const habit = this.habitForm.value;
-    this.backendService.addHabit(habit);
-    this.completedCard.emit();
-    this.close();
+    if (habit.name === '') {
+      this.invalid = true;
+      this.warning = 'Введите название привычки';
+    } else if (habit.difficulty > 5) {
+      this.invalid = true;
+      this.warning = 'Максимальная сложность привычки равна 5';
+    } else {
+      this.backendService.addHabit(habit);
+      this.completedCard.emit();
+      this.close();
+    }
   }
 
   updateHabit(): void {
     const habit = this.habitForm.value;
     habit.id = this.habit.id;
-    this.backendService.updateHabit(habit);
-    this.completedCard.emit();
-    this.close();
+    if (habit.name === '') {
+      this.invalid = true;
+      this.warning = 'Введите название привычки';
+    } else if (habit.difficulty > 5) {
+      this.invalid = true;
+      this.warning = 'Максимальная сложность привычки равна 5';
+    } else {
+      this.backendService.updateHabit(habit);
+      this.completedCard.emit();
+      this.close();
+    }
   }
 
   ngOnInit() {

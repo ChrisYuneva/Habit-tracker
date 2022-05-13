@@ -1,7 +1,7 @@
 .card {
   display: flex;
   justify-content: center;
-  width: 600px;
+  width: 37vw;
   height: 150px;
   background: rgba(148, 164, 193, 0.95);
   color: #515455;

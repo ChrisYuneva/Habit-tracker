@@ -1,9 +1,28 @@
 <div class="authorization-container">
-  <form action="" class="authorization-form">
-    <label for="login">Логин</label>
-    <input required id="login" class="authorization-input" type="text" placeholder="Введите логин">
-    <label for="pass">Пароль</label>
-    <input id="pass" class="authorization-input" type="password" placeholder="Введите пароль">
-    <a routerLink="/habits" type="submit" class="authorization-btn">Войти</a>
+  <form class="authorization-form" name="form" id="form">
+    <div class="authorization-container-sm">
+      <label for="login">Логин</label>
+      <input [(ngModel)]="user.login" #login="ngModel" required id="login" name="login" class="authorization-input"
+             type="text" placeholder="Введите логин">
+      <div [hidden]="login.valid || login.untouched" class="alert alert-danger">
+        Не указан логин
+      </div>
+    </div>
+    <div class="authorization-container-sm">
+      <label for="password">Пароль</label>
+      <input name="password" [(ngModel)]="user.password" #password="ngModel" required
+             pattern="^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$" id="password" class="authorization-input"
+             type="password" placeholder="Введите пароль">
+      <div [hidden]="password.valid || password.untouched" class="alert alert-danger">
+        Некорректный пароль
+      </div>
+    </div>
+    <div *ngIf="uncorrected" class="alert alert-danger">
+      Неверный логин или пароль
+    </div>
+    <button [disabled]="login.invalid || password.invalid" (click)="addUser()" type="submit" class="authorization-btn">
+      Войти
+    </button>
   </form>
 </div>
+

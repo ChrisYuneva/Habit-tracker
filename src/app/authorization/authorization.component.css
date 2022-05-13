@@ -50,3 +50,8 @@
   margin-top: 25%;
   color: #515455;
 }
+
+.authorization-container-sm {
+  display: flex;
+  flex-direction: column;
+}

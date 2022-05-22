@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {BackendService} from "../services/backend.service";
 import {Habit} from "../models/habit.model";
-import {CardComponent} from "../card/card.component";
+
 
 @Component({
   selector: 'app-container',
@@ -13,7 +13,7 @@ export class ContainerComponent implements OnInit {
   @Input()
   habit!: Habit;
 
-  constructor(private backendService: BackendService, public cardComponent: CardComponent) {
+  constructor(private backendService: BackendService) {
   }
 
   habits: Habit[] = [];

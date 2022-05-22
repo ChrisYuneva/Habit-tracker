@@ -21,10 +21,9 @@ export class AuthorizationComponent implements OnInit {
   constructor(private router: Router) {
   }
 
-  user: User = new User('', '')
+  user: User = new User('', '');
 
   addUser() {
-    console.log(this.user);
     if (this.user.login === this.login && this.user.password === this.password) {
       this.router.navigate(['/habits']);
     } else {

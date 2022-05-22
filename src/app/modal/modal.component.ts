@@ -21,9 +21,6 @@ export class ModalComponent implements OnInit {
   @Output()
   public modalClosed: EventEmitter<void> = new EventEmitter<void>();
 
-  @Output()
-  public completedCard: EventEmitter<void> = new EventEmitter<void>();
-
   public habitForm!: FormGroup;
 
   invalid: boolean = false;
@@ -44,9 +41,12 @@ export class ModalComponent implements OnInit {
     } else if (habit.difficulty > 5) {
       this.invalid = true;
       this.warning = 'Максимальная сложность привычки равна 5';
-    } else {
+    } else if (habit.difficulty < 1) {
+      this.invalid = true;
+      this.warning = 'Минимальная сложность привычки равна 1';
+    }
+    else {
       this.backendService.addHabit(habit);
-      this.completedCard.emit();
       this.close();
     }
   }
@@ -60,9 +60,12 @@ export class ModalComponent implements OnInit {
     } else if (habit.difficulty > 5) {
       this.invalid = true;
       this.warning = 'Максимальная сложность привычки равна 5';
-    } else {
+    } else if (habit.difficulty < 1) {
+      this.invalid = true;
+      this.warning = 'Минимальная сложность привычки равна 1';
+    }
+    else {
       this.backendService.updateHabit(habit);
-      this.completedCard.emit();
       this.close();
     }
   }

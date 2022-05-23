@@ -1,30 +1,30 @@
 <div class="authorization-container">
-  <form class="authorization-form" name="form" id="form">
+  <form [formGroup]="userForm" class="authorization-form" name="form" id="form">
     <div class="authorization-container-sm">
       <label for="login">Логин</label>
-      <input [(ngModel)]="user.login" #login="ngModel" required id="login" name="login" class="authorization-input"
+      <input formControlName="login" required id="login" name="login" class="authorization-input"
              type="text" placeholder="Введите логин">
-      <div [hidden]="login.valid || login.untouched" class="alert alert-danger">
+      <div *ngIf="userForm.controls['login'].invalid && userForm.controls['login'].touched" class="alert alert-danger">
         Не указан логин
       </div>
     </div>
     <div class="authorization-container-sm">
       <label for="password">Пароль</label>
-      <input name="password" [(ngModel)]="user.password" #password="ngModel" required
-             pattern="^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$" id="password" class="authorization-input"
-             type="password" placeholder="Введите пароль">
-      <div [hidden]="password.valid || password.untouched" class="alert alert-danger">
+      <input formControlName="password" name="password" required
+              id="password" class="authorization-input"
+           type="password" placeholder="Введите пароль">
+        <div *ngIf="userForm.controls['password'].invalid && userForm.controls['password'].touched" class="alert alert-danger">
         Некорректный пароль
       </div>
     </div>
-    <div *ngIf="uncorrected" class="alert alert-danger">
+    <div *ngIf="backendService.nullUser"  class="alert alert-danger">
       Неверный логин или пароль
     </div>
     <div class="button-block">
-      <button routerLink="/registration" class="authorization-btn">
+      <button routerLink="/registration" class="authorization-btn-registration">
         Регистрация
       </button>
-      <button [disabled]="login.invalid || password.invalid" (click)="addUser()" type="submit" class="authorization-btn">
+      <button [disabled]="backendService.nullUser || userForm.invalid" (click)="enter()" type="submit" class="authorization-btn">
         Войти
       </button>
     </div>

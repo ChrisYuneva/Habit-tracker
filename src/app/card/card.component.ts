@@ -8,8 +8,6 @@ import {BackendService} from "../services/backend.service";
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-  count: number = 0;
-
   // Передача данных в дочерний компонент
   @Input()
   habit!: Habit;

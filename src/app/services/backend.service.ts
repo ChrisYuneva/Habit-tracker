@@ -1,4 +1,4 @@
-import {Injectable} from "@angular/core";
+import {Injectable, Input, Output} from "@angular/core";
 import {Habit, HABIT_TYPE} from "../models/habit.model";
 import {User} from "../models/user.model";
 import {BehaviorSubject} from "rxjs";
@@ -13,33 +13,15 @@ import {Router} from "@angular/router";
 
 export class BackendService {
 
+  // @Input()
+  nullUser: boolean = false;
+  keep: boolean = false;
+
   constructor(private router: Router) {
   }
 
   public habits: Habit[] = JSON.parse(localStorage.getItem('Habit') || '[]');
-  public users: User[] = [
-    {
-      login: 'test',
-      password: 'Qazwsxedc_01022'
-    },
-    {
-      login: 'root',
-      password: 'Qazwsxedc_01022'
-    }
-  ]
-  //   {
-  //     id: 1,
-  //     name: "Бегать по утрам",
-  //     type: HABIT_TYPE.GOOD,
-  //     difficulty: 5
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Пить 2л воды в день",
-  //     type: HABIT_TYPE.GOOD,
-  //     difficulty: 2
-  //   }
-  // ];
+  public users: User[] = JSON.parse(localStorage.getItem('Users') || '[]');
   public habits$: BehaviorSubject<Habit[]> = new BehaviorSubject<Habit[]>(this.habits);
   public users$: BehaviorSubject<User[]> = new BehaviorSubject<User[]>(this.users);
 
@@ -79,12 +61,24 @@ export class BackendService {
 
   entrance(user: User): void {
     let userEntry = this.users.find((u => u.login === user.login && u.password === user.password));
-    if(!!userEntry) {
+    if (!!userEntry) {
       this.router.navigate(['/habits']);
+    } else {
+      this.nullUser = !this.nullUser;
     }
-    else {
-      console.log('hgjkl')
+  }
+
+  addUser(user: User): void {
+    if (this.users.find(u => u.login === user.login)) {
+      this.keep = true;
+    } else {
+      this.users.push(user);
+      this.setUser();
+      this.router.navigate(['/authorization']);
     }
-    // this.users$.next(this.users)
+  }
+
+  setUser(): void {
+    localStorage.setItem('Users', JSON.stringify(this.users));
   }
 }

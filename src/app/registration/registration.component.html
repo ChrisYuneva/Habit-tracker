@@ -1,32 +1,43 @@
 <div class="authorization-container">
-  <form class="authorization-form" name="form" id="form">
+  <form [formGroup]="userForm" class="authorization-form" name="form" id="form">
     <div class="authorization-container-sm">
       <label for="login">Логин</label>
-      <input required id="login" name="login" class="authorization-input"
+      <input formControlName="login" required id="login" name="login" class="authorization-input"
              type="text" placeholder="Введите логин">
-<!--      <div [hidden]="login.valid || login.untouched" class="alert alert-danger">-->
-<!--        Не указан логин-->
-<!--      </div>-->
+      <div *ngIf="userForm.controls['login'].invalid && userForm.controls['login'].touched" class="alert alert-danger">
+        Не указан логин
+      </div>
+
     </div>
     <div class="authorization-container-sm">
       <label for="password">Пароль</label>
-      <input name="password"  required
-             pattern="^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$" id="password" class="authorization-input"
+      <input name="password" formControlName="password" required
+           id="password" class="authorization-input"
              type="password" placeholder="Введите пароль">
-<!--      <div [hidden]="password.valid || password.untouched" class="alert alert-danger">-->
-<!--        Некорректный пароль-->
-<!--      </div>-->
-
-      <input name="password"  required
-             pattern="^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$" id="password" class="authorization-input"
+      <div *ngIf="userForm.controls['password'].invalid && userForm.controls['password'].touched"
+           class="alert alert-danger">
+        Некорректный пароль
+      </div>
+      <label for="repPassword">Повторите пароль</label>
+      <input formControlName="repPassword" name="repPassword" id="repPassword" required
+          class="authorization-input"
              type="password" placeholder="Повторите пароль">
     </div>
-<!--    <div  class="alert alert-danger">-->
-<!--      Неверный логин или пароль-->
-<!--    </div>-->
-    <button type="submit" class="authorization-btn">
-      Зарегистрироваться
-    </button >
+    <div *ngIf="backendService.keep" class="alert alert-danger">
+      Такой логин уже существует. Попробуйте другой
+    </div>
+        <div *ngIf="invalidPas" class="alert alert-danger">
+          Пароли не совпадают
+        </div>
+    <div class="button-block">
+      <button [disabled]="userForm.invalid" (click)="addUser()" type="submit" class="authorization-btn-registration">
+        Зарегистрироваться
+      </button>
+      <button routerLink="/authorization" class="authorization-btn">
+        Войти
+      </button>
+    </div>
+
   </form>
 </div>
 

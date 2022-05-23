@@ -4,12 +4,14 @@ import {AuthorizationComponent} from "./authorization/authorization.component";
 import {StatisticsComponent} from "./statistics/statistics.component";
 import {ContainerComponent} from "./container/container.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
+import {RegistrationComponent} from "./registration/registration.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/authorization', pathMatch: 'full'},
   {path: 'authorization', component: AuthorizationComponent},
   {path: 'habits', component: ContainerComponent},
   {path: 'statistics', component: StatisticsComponent},
+  {path: 'registration', component: RegistrationComponent},
   {path: '**', component: NotFoundComponent},
 ];
 

@@ -20,9 +20,15 @@
     <div *ngIf="uncorrected" class="alert alert-danger">
       Неверный логин или пароль
     </div>
-    <button [disabled]="login.invalid || password.invalid" (click)="addUser()" type="submit" class="authorization-btn">
-      Войти
-    </button>
+    <div class="button-block">
+      <button routerLink="/registration" class="authorization-btn">
+        Регистрация
+      </button>
+      <button [disabled]="login.invalid || password.invalid" (click)="addUser()" type="submit" class="authorization-btn">
+        Войти
+      </button>
+    </div>
+
   </form>
 </div>
 

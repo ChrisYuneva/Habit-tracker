@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import {BackendService} from "../services/backend.service";
 
 export class User {
   constructor(public login: string,
@@ -14,21 +15,22 @@ export class User {
 })
 export class AuthorizationComponent implements OnInit {
 
-  login: string = 'test';
-  password: string = 'Qazwsxedc_01022';
+  // login: string = 'test';
+  // password: string = 'Qazwsxedc_01022';
   uncorrected: boolean = false;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private backendService: BackendService) {
   }
 
   user: User = new User('', '');
 
   addUser() {
-    if (this.user.login === this.login && this.user.password === this.password) {
-      this.router.navigate(['/habits']);
-    } else {
-      this.uncorrected = true;
-    }
+    // if (this.user.login === this.login && this.user.password === this.password) {
+    //   this.router.navigate(['/habits']);
+    // } else {
+    //   this.uncorrected = true;
+    // }
+    this.backendService.entrance(this.user);
   }
 
   ngOnInit(): void {

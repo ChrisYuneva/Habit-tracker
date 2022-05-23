@@ -1,0 +1,32 @@
+<div class="authorization-container">
+  <form class="authorization-form" name="form" id="form">
+    <div class="authorization-container-sm">
+      <label for="login">Логин</label>
+      <input required id="login" name="login" class="authorization-input"
+             type="text" placeholder="Введите логин">
+<!--      <div [hidden]="login.valid || login.untouched" class="alert alert-danger">-->
+<!--        Не указан логин-->
+<!--      </div>-->
+    </div>
+    <div class="authorization-container-sm">
+      <label for="password">Пароль</label>
+      <input name="password"  required
+             pattern="^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$" id="password" class="authorization-input"
+             type="password" placeholder="Введите пароль">
+<!--      <div [hidden]="password.valid || password.untouched" class="alert alert-danger">-->
+<!--        Некорректный пароль-->
+<!--      </div>-->
+
+      <input name="password"  required
+             pattern="^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$" id="password" class="authorization-input"
+             type="password" placeholder="Повторите пароль">
+    </div>
+<!--    <div  class="alert alert-danger">-->
+<!--      Неверный логин или пароль-->
+<!--    </div>-->
+    <button type="submit" class="authorization-btn">
+      Зарегистрироваться
+    </button >
+  </form>
+</div>
+

@@ -14,6 +14,7 @@ import { ModalComponent } from './modal/modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ModalWarningComponent } from './modal-warning/modal-warning.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ModalWarningComponent } from './modal-warning/modal-warning.component';
     ModalComponent,
     NotFoundComponent,
     ModalWarningComponent,
+    RegistrationComponent,
   ],
   entryComponents: [ CardComponent ],
   imports: [

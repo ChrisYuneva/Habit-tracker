@@ -1,6 +1,8 @@
 import {Injectable} from "@angular/core";
 import {Habit, HABIT_TYPE} from "../models/habit.model";
+import {User} from "../models/user.model";
 import {BehaviorSubject} from "rxjs";
+import {Router} from "@angular/router";
 
 // Observable - мы можем на него подписаться и всё
 // Subject - observable + положить туда что то
@@ -10,7 +12,21 @@ import {BehaviorSubject} from "rxjs";
 })
 
 export class BackendService {
+
+  constructor(private router: Router) {
+  }
+
   public habits: Habit[] = JSON.parse(localStorage.getItem('Habit') || '[]');
+  public users: User[] = [
+    {
+      login: 'test',
+      password: 'Qazwsxedc_01022'
+    },
+    {
+      login: 'root',
+      password: 'Qazwsxedc_01022'
+    }
+  ]
   //   {
   //     id: 1,
   //     name: "Бегать по утрам",
@@ -25,6 +41,7 @@ export class BackendService {
   //   }
   // ];
   public habits$: BehaviorSubject<Habit[]> = new BehaviorSubject<Habit[]>(this.habits);
+  public users$: BehaviorSubject<User[]> = new BehaviorSubject<User[]>(this.users);
 
   getHabits(): BehaviorSubject<Habit[]> {
     return this.habits$;
@@ -58,5 +75,16 @@ export class BackendService {
 
   setHabit(): void {
     localStorage.setItem('Habit', JSON.stringify(this.habits));
+  }
+
+  entrance(user: User): void {
+    let userEntry = this.users.find((u => u.login === user.login && u.password === user.password));
+    if(!!userEntry) {
+      this.router.navigate(['/habits']);
+    }
+    else {
+      console.log('hgjkl')
+    }
+    // this.users$.next(this.users)
   }
 }

@@ -82,4 +82,8 @@ export class BackendService {
   setUser(): void {
     localStorage.setItem('Users', JSON.stringify(this.users));
   }
+
+  setLogin(login: string): void {
+    localStorage.setItem('Login', (login));
+  }
 }

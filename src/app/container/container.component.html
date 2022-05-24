@@ -2,6 +2,7 @@
 <section class="container-card" [ngClass]="{'blur' : modalVisible || warningVisible}">
   <div class="sm-scale">
     <div class="scale-des">
+      <h4>{{userName}}</h4>
       <div class="scale-block">
         <progress max="50" [value]="healthCount"></progress>
         <span class="span-count">{{healthCount}}/50</span>
@@ -13,7 +14,7 @@
       </div>
       <span class="span-des">Опыт</span>
     </div>
-      <h5>Ваш уровень: {{level}}</h5>
+    <h5>Ваш уровень: {{level}}</h5>
     <button class="container-btn" (click)="addHabit()">Добавить привычку</button>
   </div>
   <div class="card-block">
@@ -24,4 +25,5 @@
 <app-modal *ngIf="modalVisible" [adding]="modalAdding" [habit]="habitToUpdate"
            (modalClosed)="modalVisible = false"></app-modal>
 
-<app-modal-warning *ngIf="warningVisible" [warningType]="warningType" (warningClosed)="warningVisible = false"></app-modal-warning>
+<app-modal-warning *ngIf="warningVisible" [warningType]="warningType"
+                   (warningClosed)="warningVisible = false"></app-modal-warning>

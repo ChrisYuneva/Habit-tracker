@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {BackendService} from "../services/backend.service";
 import {Habit} from "../models/habit.model";
+import {User} from "../models/user.model";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -13,7 +15,7 @@ export class ContainerComponent implements OnInit {
   @Input()
   habit!: Habit;
 
-  constructor(private backendService: BackendService) {
+  constructor(public router: Router, private backendService: BackendService) {
   }
 
   habits: Habit[] = [];
@@ -26,6 +28,7 @@ export class ContainerComponent implements OnInit {
   scaleChange: boolean = false;
   level: number = Number(JSON.parse(localStorage.getItem('Level') || '1'));
   warningType: boolean = false;
+  userName = localStorage.getItem('Login');
 
   addHabit(): void {
     this.modalAdding = true;
@@ -66,8 +69,14 @@ export class ContainerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.backendService.habits$.subscribe((habits: Habit[]) => {
-      this.habits = habits;
-    })
+    const login = localStorage.getItem('Login');
+    const users = JSON.parse(localStorage.getItem('Users') || '');
+    if (login && users.find((l: User) => l.login === login)) {
+      this.backendService.habits$.subscribe((habits: Habit[]) => {
+        this.habits = habits;
+      })
+    } else {
+      this.router.navigate(['/authorization']);
+    }
   }
 }

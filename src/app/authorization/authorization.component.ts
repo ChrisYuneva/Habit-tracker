@@ -24,6 +24,7 @@ export class AuthorizationComponent implements OnInit {
   enter() {
     const users = this.userForm.value;
     this.backendService.entrance(users);
+    this.backendService.setLogin(this.userForm.value.login);
   }
 
   ngOnInit(): void {

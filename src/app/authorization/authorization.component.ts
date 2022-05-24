@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
 import {BackendService} from "../services/backend.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
@@ -13,9 +12,11 @@ export class AuthorizationComponent implements OnInit {
   public userForm!: FormGroup;
   uncorrected: boolean = false;
 
-  constructor(private router: Router, public backendService: BackendService) {
+  constructor(public backendService: BackendService) {
     this.userForm = new FormGroup({
-      'login': new FormControl(),
+      'login': new FormControl('', [
+        Validators.required
+      ]),
       'password': new FormControl()
     })
   }

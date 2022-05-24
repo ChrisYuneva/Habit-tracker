@@ -11,24 +11,25 @@
     <div class="authorization-container-sm">
       <label for="password">Пароль</label>
       <input formControlName="password" name="password" required
-              id="password" class="authorization-input"
-           type="password" placeholder="Введите пароль">
-        <div *ngIf="userForm.controls['password'].invalid && userForm.controls['password'].touched" class="alert alert-danger">
+             id="password" class="authorization-input"
+             type="password" placeholder="Введите пароль">
+      <div *ngIf="userForm.controls['password'].invalid && userForm.controls['password'].touched"
+           class="alert alert-danger">
         Некорректный пароль
       </div>
     </div>
-    <div *ngIf="backendService.nullUser"  class="alert alert-danger">
+    <div *ngIf="backendService.nullUser" class="alert alert-danger">
       Неверный логин или пароль
     </div>
     <div class="button-block">
       <button routerLink="/registration" class="authorization-btn-registration">
         Регистрация
       </button>
-      <button [disabled]="backendService.nullUser || userForm.invalid" (click)="enter()" type="submit" class="authorization-btn">
+      <button [disabled]="backendService.nullUser || userForm.invalid" (click)="enter()" type="submit"
+              class="authorization-btn">
         Войти
       </button>
     </div>
-
   </form>
 </div>
 

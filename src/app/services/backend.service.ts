@@ -1,5 +1,5 @@
-import {Injectable, Input, Output} from "@angular/core";
-import {Habit, HABIT_TYPE} from "../models/habit.model";
+import {Injectable} from "@angular/core";
+import {Habit} from "../models/habit.model";
 import {User} from "../models/user.model";
 import {BehaviorSubject} from "rxjs";
 import {Router} from "@angular/router";
@@ -13,7 +13,6 @@ import {Router} from "@angular/router";
 
 export class BackendService {
 
-  // @Input()
   nullUser: boolean = false;
   keep: boolean = false;
 
@@ -63,8 +62,9 @@ export class BackendService {
     let userEntry = this.users.find((u => u.login === user.login && u.password === user.password));
     if (!!userEntry) {
       this.router.navigate(['/habits']);
+      this.nullUser = false;
     } else {
-      this.nullUser = !this.nullUser;
+      this.nullUser = true;
     }
   }
 
@@ -72,6 +72,7 @@ export class BackendService {
     if (this.users.find(u => u.login === user.login)) {
       this.keep = true;
     } else {
+      this.keep = false;
       this.users.push(user);
       this.setUser();
       this.router.navigate(['/authorization']);

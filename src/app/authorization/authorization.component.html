@@ -22,10 +22,10 @@
       Неверный логин или пароль
     </div>
     <div class="button-block">
-      <button routerLink="/registration" class="authorization-btn-registration">
+      <button type="button" routerLink="/registration" class="authorization-btn-registration">
         Регистрация
       </button>
-      <button [disabled]="backendService.nullUser || userForm.invalid" (click)="enter()" type="submit"
+      <button [disabled]="backendService.nullUser || userForm.invalid" (click)="enter()" type="button"
               class="authorization-btn">
         Войти
       </button>

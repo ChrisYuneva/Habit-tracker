@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
-import {Habit} from "../models/habit.model";
+import {Habit, HABIT_TYPE} from "../models/habit.model";
 import {User} from "../models/user.model";
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, map, Observable, tap} from "rxjs";
 import {Router} from "@angular/router";
 
 // Observable - мы можем на него подписаться и всё
@@ -19,28 +19,33 @@ export class BackendService {
   constructor(private router: Router) {
   }
 
-  public habits: Habit[] = JSON.parse(localStorage.getItem('Habit') || '[]');
+  public habits: Record<string, Habit[]> = JSON.parse(localStorage.getItem('Habit') || '{}');
+  public authorized: any[] = JSON.parse(localStorage.getItem('Authorized') || '[]');
   public users: User[] = JSON.parse(localStorage.getItem('Users') || '[]');
-  public habits$: BehaviorSubject<Habit[]> = new BehaviorSubject<Habit[]>(this.habits);
-  public users$: BehaviorSubject<User[]> = new BehaviorSubject<User[]>(this.users);
+  public habits$: BehaviorSubject<Record<string, Habit[]>> = new BehaviorSubject<Record<string, Habit[]>>(this.habits);
+  public localLogin: string = localStorage.getItem('Login');
 
-  getHabits(): BehaviorSubject<Habit[]> {
-    return this.habits$;
+  getHabitsByLogin(): Observable<Habit[]> {
+    return this.habits$.pipe(
+      map((habits: Record<string, Habit[]>) => habits[this.localLogin])
+    );
   }
 
   addHabit(habit: Habit) {
-    if (this.habits.length === 0) {
+    const habitsOfCurrentUser: Habit[] = this.habits[this.localLogin];
+    if (habitsOfCurrentUser.length === 0) {
       habit.id = 1;
     } else {
-      habit.id = this.habits[this.habits.length - 1].id + 1;
+      habit.id = habitsOfCurrentUser[habitsOfCurrentUser.length - 1].id + 1;
     }
-    this.habits.push(habit);
+    habitsOfCurrentUser.push(habit);
+    this.habits[this.localLogin] = habitsOfCurrentUser;
     this.setHabit();
     this.habits$.next(this.habits);
   }
 
   updateHabit(habit: Habit) {
-    const updatedHabit = this.habits.find(h => h.id === habit.id);
+    const updatedHabit = this.habits[this.localLogin].find(h => h.id === habit.id);
     updatedHabit!.name = habit.name;
     updatedHabit!.type = habit.type;
     updatedHabit!.difficulty = habit.difficulty;
@@ -49,7 +54,9 @@ export class BackendService {
   }
 
   deleteHabit(id: number) {
-    this.habits = this.habits.filter(habit => habit.id !== id);
+    let habitsOfCurrentUser: Habit[] = this.habits[this.localLogin];
+    habitsOfCurrentUser = habitsOfCurrentUser.filter(habit => habit.id !== id);
+    this.habits[this.localLogin] = habitsOfCurrentUser;
     this.setHabit();
     this.habits$.next(this.habits);
   }
@@ -74,7 +81,13 @@ export class BackendService {
     } else {
       this.keep = false;
       this.users.push(user);
+      this.authorized.push(user);
       this.setUser();
+
+      this.habits[user.login] = [];
+      this.habits$.next(this.habits);
+      this.setHabit()
+
       this.router.navigate(['/authorization']);
     }
   }
@@ -85,5 +98,6 @@ export class BackendService {
 
   setLogin(login: string): void {
     localStorage.setItem('Login', (login));
+    this.localLogin = localStorage.getItem('Login');
   }
 }

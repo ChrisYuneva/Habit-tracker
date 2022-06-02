@@ -45,10 +45,10 @@
   width: 100px;
   text-decoration: none;
   outline: none;
-  border: none;
   border-radius: 5px;
-  background: linear-gradient(0deg, #92BDDD 0%, #B2B1D2 100%);
-  margin-top: 25%;
+  border: 2px solid #B2B1D2;
+  background-color: transparent;
+  margin-top: 12%;
   color: #515455;
 }
 
@@ -60,14 +60,14 @@
   width: 150px;
   text-decoration: none;
   outline: none;
-  border: 2px solid #B2B1D2;
-  background-color: transparent;
+  border: none;
+  background: linear-gradient(0deg, #92BDDD 0%, #B2B1D2 100%);
   border-radius: 5px;
-  margin-top: 25%;
+  margin-top: 4%;
   color: #515455;
 }
 
-.authorization-btn-registration:hover {
+.authorization-btn:hover {
   background-color: #B2B1D2;
 }
 
@@ -80,5 +80,11 @@
 .button-block {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+}
+
+.main-btn-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

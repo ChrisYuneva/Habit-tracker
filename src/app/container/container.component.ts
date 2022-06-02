@@ -4,7 +4,6 @@ import {Habit} from "../models/habit.model";
 import {User} from "../models/user.model";
 import {Router} from "@angular/router";
 
-
 @Component({
   selector: 'app-container',
   templateUrl: './container.component.html',
@@ -72,7 +71,8 @@ export class ContainerComponent implements OnInit {
     const login = localStorage.getItem('Login');
     const users = JSON.parse(localStorage.getItem('Users') || '');
     if (login && users.find((l: User) => l.login === login)) {
-      this.backendService.habits$.subscribe((habits: Habit[]) => {
+      this.backendService.getHabitsByLogin().subscribe((habits: Habit[]) => {
+        console.log(123, habits)
         this.habits = habits;
       })
     } else {

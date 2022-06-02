@@ -28,11 +28,17 @@
     <div *ngIf="invalidPas" class="alert alert-danger">
       Пароли не совпадают
     </div>
-    <div class="button-block">
-      <button [disabled]="userForm.invalid" (click)="addUser()" type="submit" class="authorization-btn-registration">
+    <div class="main-btn-block">
+      <button [disabled]="userForm.invalid" (click)="addUser()" type="button" class="authorization-btn-registration">
         Зарегистрироваться
       </button>
-      <button routerLink="/authorization" class="authorization-btn">
+    </div>
+
+    <div class="button-block">
+      <!--      <button [disabled]="userForm.invalid" (click)="addUser()" type="submit" class="authorization-btn-registration">-->
+      <!--        Зарегистрироваться-->
+      <!--      </button>-->
+      <button routerLink="/authorization" class="authorization-btn" type="button">
         Войти
       </button>
     </div>

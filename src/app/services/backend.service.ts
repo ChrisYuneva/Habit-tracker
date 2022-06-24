@@ -20,7 +20,6 @@ export class BackendService {
   }
 
   public habits: Record<string, Habit[]> = JSON.parse(localStorage.getItem('Habit') || '{}');
-  public authorized: any[] = JSON.parse(localStorage.getItem('Authorized') || '[]');
   public users: User[] = JSON.parse(localStorage.getItem('Users') || '[]');
   public habits$: BehaviorSubject<Record<string, Habit[]>> = new BehaviorSubject<Record<string, Habit[]>>(this.habits);
   public localLogin: string = localStorage.getItem('Login');
@@ -80,14 +79,14 @@ export class BackendService {
       this.keep = true;
     } else {
       this.keep = false;
+      user.experience = 0;
+      user.health = 50;
+      user.level = 1;
       this.users.push(user);
-      this.authorized.push(user);
       this.setUser();
-
       this.habits[user.login] = [];
       this.habits$.next(this.habits);
-      this.setHabit()
-
+      this.setHabit();
       this.router.navigate(['/authorization']);
     }
   }

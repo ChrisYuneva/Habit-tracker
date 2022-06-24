@@ -22,10 +22,12 @@ export class ContainerComponent implements OnInit {
   warningVisible: boolean = false;
   modalAdding: boolean = false;
   habitToUpdate!: Habit;
-  healthCount: number = Number(JSON.parse(localStorage.getItem('Health') || '50'));
-  experienceCount: number = Number(JSON.parse(localStorage.getItem('Experience') || '0'));
+  users = JSON.parse(localStorage.getItem('Users'));
+  currentUser = this.users.find((l: User) => l.login === this.userName);
+  healthCount: number = 50;
+  experienceCount: number = 0;
+  level: number = 1;
   scaleChange: boolean = false;
-  level: number = Number(JSON.parse(localStorage.getItem('Level') || '1'));
   warningType: boolean = false;
   userName = localStorage.getItem('Login');
 
@@ -62,18 +64,25 @@ export class ContainerComponent implements OnInit {
   }
 
   setParam(): void {
-    localStorage.setItem('Health', JSON.stringify(this.healthCount));
-    localStorage.setItem('Experience', JSON.stringify(this.experienceCount));
-    localStorage.setItem('Level', JSON.stringify(this.level));
+    let users = JSON.parse(localStorage.getItem('Users'));
+    const currentUser = users.find((l: User) => l.login === this.userName);
+    currentUser.health = this.healthCount;
+    currentUser.experience = this.experienceCount;
+    currentUser.level = this.level;
+    localStorage.setItem('Users', JSON.stringify(users));
   }
 
   ngOnInit() {
     const login = localStorage.getItem('Login');
     const users = JSON.parse(localStorage.getItem('Users') || '');
     if (login && users.find((l: User) => l.login === login)) {
+      const currentUser = users.find((l: User) => l.login === this.userName);
+      this.healthCount = currentUser.health;
+      this.experienceCount = currentUser.experience;
+      this.level = currentUser.level;
       this.backendService.getHabitsByLogin().subscribe((habits: Habit[]) => {
-        console.log(123, habits)
         this.habits = habits;
+
       })
     } else {
       this.router.navigate(['/authorization']);

@@ -15,6 +15,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ModalWarningComponent } from './modal-warning/modal-warning.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { NgChartsModule } from 'ng2-charts';
+import { ChartComponent } from './chart/chart.component';
+
 
 @NgModule({
   declarations: [
@@ -28,6 +31,7 @@ import { RegistrationComponent } from './registration/registration.component';
     NotFoundComponent,
     ModalWarningComponent,
     RegistrationComponent,
+    ChartComponent,
   ],
   entryComponents: [ CardComponent ],
   imports: [
@@ -36,7 +40,8 @@ import { RegistrationComponent } from './registration/registration.component';
     ReactiveFormsModule,
     AppRoutingModule,
     CommonModule,
-    NgbModule
+    NgbModule,
+    NgChartsModule
   ],
   providers: [ CardComponent, ModalComponent ],
   bootstrap: [AppComponent]

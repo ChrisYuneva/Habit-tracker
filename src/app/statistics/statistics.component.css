@@ -4,3 +4,13 @@
   align-items: center;
   height: 90vh;
 }
+
+.app-chart {
+  display: flex;
+  justify-content: center;
+}
+
+.h2-static {
+  color: #515455;
+  margin-top: 16px;
+}

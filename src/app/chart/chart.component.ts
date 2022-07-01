@@ -51,8 +51,9 @@ export class ChartComponent {
       {
         data: this.allLevels,
         label: 'Уровень',
-        backgroundColor: 'rgba(146, 189, 221)',
+        backgroundColor: 'rgba(177, 177, 210, 1)',
         hoverBackgroundColor: 'rgba(152, 168, 195)',
+        borderColor: 'rgba(217, 217, 217, 1)'
       },
     ]
   };
@@ -62,7 +63,11 @@ export class ChartComponent {
     if (this.chartType === true) {
       this.headerChart = 'График накопленного опыта с учетом всех уровней:';
       this.barChartData.datasets[0] = {
-        data: this.allExperience, label: 'Опыт'
+        data: this.allExperience,
+        label: 'Опыт',
+        backgroundColor: 'rgba(147, 189, 221, 1)',
+        hoverBackgroundColor: 'rgba(147, 208, 221, 1)',
+        borderColor: 'rgba(217, 217, 217, 1)'
       }
       this.chart?.update();
     } else {
@@ -70,8 +75,9 @@ export class ChartComponent {
       this.barChartData.datasets[0] = {
         data: this.allLevels,
         label: 'Уровень',
-        backgroundColor: 'rgba(146, 189, 221)',
+        backgroundColor: 'rgba(177, 177, 210, 1)',
         hoverBackgroundColor: 'rgba(152, 168, 195)',
+        borderColor: 'rgba(217, 217, 217, 1)'
       }
       this.chart?.update();
     }

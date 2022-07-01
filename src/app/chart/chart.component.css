@@ -1,12 +1,9 @@
-/*.chart-container {*/
-/*  margin-top: 8%;*/
-/*}*/
-
 .chart-container-sm {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 32px;
 }
 
 .chart {
@@ -17,4 +14,8 @@
 .head-chart {
   color: #515455;
   margin: 16px 0 20px 16px;
+}
+
+.chart-btn {
+  margin-top: 36px;
 }

@@ -4,4 +4,5 @@ export interface User {
   health:  number,
   level: number,
   experience: number,
+  allExperience: number,
 }

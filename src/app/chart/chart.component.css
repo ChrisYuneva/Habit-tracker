@@ -1,3 +1,20 @@
-.chart-container {
-  width: 700px;
+/*.chart-container {*/
+/*  margin-top: 8%;*/
+/*}*/
+
+.chart-container-sm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.chart {
+  cursor: pointer;
+  width: 800px;
+}
+
+.head-chart {
+  color: #515455;
+  margin: 16px 0 20px 16px;
 }

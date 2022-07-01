@@ -25,7 +25,7 @@
       <button type="button" routerLink="/registration" class="authorization-btn-registration">
         Регистрация
       </button>
-      <button [disabled]="backendService.nullUser || userForm.invalid" (click)="enter()" type="button"
+      <button [disabled]="userForm.invalid" (click)="enter()" type="button"
               class="authorization-btn">
         Войти
       </button>

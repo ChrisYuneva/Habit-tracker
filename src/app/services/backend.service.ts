@@ -82,6 +82,7 @@ export class BackendService {
       user.experience = 0;
       user.health = 50;
       user.level = 1;
+      user.allExperience = 0;
       this.users.push(user);
       this.setUser();
       this.habits[user.login] = [];

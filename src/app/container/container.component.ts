@@ -27,6 +27,7 @@ export class ContainerComponent implements OnInit {
   healthCount: number = 50;
   experienceCount: number = 0;
   level: number = 1;
+  allExperience: number = 0;
   scaleChange: boolean = false;
   warningType: boolean = false;
   userName = localStorage.getItem('Login');
@@ -69,6 +70,8 @@ export class ContainerComponent implements OnInit {
     currentUser.health = this.healthCount;
     currentUser.experience = this.experienceCount;
     currentUser.level = this.level;
+    this.allExperience = this.experienceCount + this.level*50;
+    currentUser.allExperience = this.allExperience;
     localStorage.setItem('Users', JSON.stringify(users));
   }
 
@@ -82,7 +85,6 @@ export class ContainerComponent implements OnInit {
       this.level = currentUser.level;
       this.backendService.getHabitsByLogin().subscribe((habits: Habit[]) => {
         this.habits = habits;
-
       })
     } else {
       this.router.navigate(['/authorization']);

@@ -1,14 +1,17 @@
 <div class="chart-container">
-  <div>
-    <div style="display: block">
-      <canvas baseChart
-              [data]="barChartData"
-              [options]="barChartOptions"
-              [plugins]="barChartPlugins"
-              [type]="barChartType"
-              (chartHover)="chartHovered($event)"
-              (chartClick)="chartClicked($event)">
-      </canvas>
+  <h2 class="head-chart">{{headerChart}}</h2>
+  <div class="chart-container-sm">
+    <div class="chart">
+      <div style="display: block">
+        <canvas baseChart
+                [data]="barChartData"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+        >
+        </canvas>
+      </div>
     </div>
+    <button (click)="changeChart()">Изменить график</button>
   </div>
 </div>
+

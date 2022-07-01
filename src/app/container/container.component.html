@@ -15,7 +15,7 @@
       <span class="span-des">Опыт</span>
     </div>
     <h5>Ваш уровень: {{level}}</h5>
-    <button class="container-btn" (click)="addHabit()">Добавить привычку</button>
+    <app-button (click)="addHabit()" btnText="Добавить привычку"></app-button>
   </div>
   <div class="card-block">
     <app-card *ngFor="let habit of habits" [habit]="habit" (edit)="update(habit)"

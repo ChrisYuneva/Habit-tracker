@@ -12,21 +12,6 @@
   background-attachment: fixed;
 }
 
-.container-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 35px;
-  width: 200px;
-  margin-bottom: 24px;
-  cursor: pointer;
-  outline: none;
-  border: none;
-  border-radius: 5px;
-  color: #515455;
-  background: linear-gradient(0deg, #92BDDD 0%, #B2B1D2 100%);
-}
-
 .sm-scale {
   display: flex;
   flex-direction: row;

@@ -60,7 +60,7 @@ export class ChartComponent {
   public changeChart(): void {
     this.chartType = !this.chartType;
     if (this.chartType === true) {
-      this.headerChart = 'График опыта пользователей с учетом всех уровней:';
+      this.headerChart = 'График накопленного опыта с учетом всех уровней:';
       this.barChartData.datasets[0] = {
         data: this.allExperience, label: 'Опыт'
       }

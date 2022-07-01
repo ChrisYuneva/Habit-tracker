@@ -17,6 +17,7 @@ import { ModalWarningComponent } from './modal-warning/modal-warning.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { NgChartsModule } from 'ng2-charts';
 import { ChartComponent } from './chart/chart.component';
+import { ButtonComponent } from './button/button.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { ChartComponent } from './chart/chart.component';
     ModalWarningComponent,
     RegistrationComponent,
     ChartComponent,
+    ButtonComponent,
   ],
   entryComponents: [ CardComponent ],
   imports: [

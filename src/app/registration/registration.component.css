@@ -30,6 +30,7 @@
   margin-bottom: 20px;
   font-size: 20px;
   box-shadow: none;
+  border-radius: 0;
 }
 
 .authorization-input:focus-visible {

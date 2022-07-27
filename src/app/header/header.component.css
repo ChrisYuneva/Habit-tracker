@@ -71,7 +71,7 @@
   .header-container {
     padding-left: 12px;
     padding-right: 12px;
-    height: 30px;
+    height: 40px;
     background-color: #92A4D7;
   }
 
@@ -80,7 +80,7 @@
   }
 
   .header-link {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .header-link-h4 {

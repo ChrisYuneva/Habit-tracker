@@ -4,7 +4,7 @@
   align-items: center;
   height: 35px;
   width: 200px;
-  margin-bottom: 24px;
+  /*margin-bottom: 24px;*/
   cursor: pointer;
   outline: none;
   border: none;
@@ -12,3 +12,22 @@
   color: #515455;
   background: linear-gradient(0deg, #92BDDD 0%, #B2B1D2 100%);
 }
+
+@media screen and (max-width: 1024px){
+
+}
+
+@media screen and (max-width: 800px){
+  .button {
+    width: 150px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 420px){
+  .button {
+    width: 110px;
+    font-size: 12px;
+  }
+}
+

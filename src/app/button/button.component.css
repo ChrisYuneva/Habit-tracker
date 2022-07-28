@@ -14,7 +14,9 @@
 }
 
 @media screen and (max-width: 1024px){
-
+  .button {
+    width: 175px;
+  }
 }
 
 @media screen and (max-width: 800px){

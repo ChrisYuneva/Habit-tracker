@@ -82,6 +82,22 @@
   border: none;
 }
 
+@media screen and (max-width: 1024px){
+  .modal-center {
+    top: 24%;
+    left: 25%;
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 800px){
+  .modal-center {
+    top: 25%;
+    left: 19%;
+    width: 350px;
+  }
+}
+
 
 @media screen and (max-width: 420px){
   .modal-center {

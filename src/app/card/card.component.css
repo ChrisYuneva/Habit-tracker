@@ -159,7 +159,7 @@
 }
 
 #edit {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .card-description-sm-container {
@@ -171,13 +171,43 @@
 }
 
 @media screen and (max-width: 1024px){
+  .card {
+    width: 39vw;
+    height: 19vh;
+  }
 
+  .card-block {
+    column-gap: 75px;
+  }
+
+  .card-button {
+    width: 43px;
+    height: 43px;
+  }
+
+  .card-button img {
+    width: 43px;
+    height: 43px;
+  }
+
+  .btn-img {
+    width: 27px;
+    height: 27px;
+  }
+
+  #edit {
+    margin-bottom: 35px;
+  }
+
+  .card-description h2 {
+    font-size: 22px;
+  }
 }
 
 @media screen and (max-width: 800px){
   .card {
-    width: 55vw;
-    height: 15vh;
+    width: 85vw;
+    height: 17vh;
   }
 
   .card-button {
@@ -197,6 +227,10 @@
 
   .card-description h2 {
     font-size: 20px;
+  }
+
+  #edit {
+    margin-bottom: 25px;
   }
 }
 

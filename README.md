@@ -1,5 +1,11 @@
 # HabitTracker
 
+##Всем привет!
+
+Кликните по этой ссылке и увидите деплой моего маленького приложения: https://habit-tracker-chris.herokuapp.com/ 
+
+Не судите строго <3
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
 
 ## Development server

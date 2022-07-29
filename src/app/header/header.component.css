@@ -65,6 +65,10 @@
   .header-link-h4 {
     font-size: 16px;
   }
+
+  #static {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 420px){
@@ -85,5 +89,9 @@
 
   .header-link-h4 {
     font-size: 12px;
+  }
+
+  #static {
+    display: none;
   }
 }

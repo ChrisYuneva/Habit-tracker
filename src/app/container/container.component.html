@@ -17,6 +17,7 @@
     <h5>Ваш уровень: {{level}}</h5>
     <app-button (click)="addHabit()" btnText="Добавить привычку"></app-button>
   </div>
+  <h5 class="mob-level">Ваш уровень: {{level}}</h5>
   <div class="card-block">
     <app-card *ngFor="let habit of habits" [habit]="habit" (edit)="update(habit)"
               (scale)="scaleCounter($event, this.habit.difficulty)"></app-card>

@@ -113,6 +113,9 @@ progress[role]::-webkit-progress-value {
   flex-direction: row;
 }
 
+.mob-level {
+  display: none;
+}
 
 @media screen and (max-width: 1024px){
   .container-card {
@@ -201,17 +204,18 @@ progress[role]::-webkit-progress-value {
 
   .span-des {
     font-size: 14px;
-    margin-bottom: 14px;
+    margin-bottom: 7px;
   }
 
   .sm-scale {
     padding-left: 2%;
     padding-right: 2%;
     justify-content: space-between;
+    margin: 0;
   }
 
   .sm-scale h5 {
-    font-size: 14px;
+    display: none;
   }
 
   progress {
@@ -222,5 +226,12 @@ progress[role]::-webkit-progress-value {
 
   .span-count {
     font-size: 10px;
+  }
+
+  .mob-level {
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 21px;
   }
 }

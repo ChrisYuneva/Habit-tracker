@@ -1,11 +1,5 @@
 # HabitTracker
 
-# Всем привет!
-
-## Кликните по этой ссылке и сможете увидеть деплой на приложение: https://habit-tracker-chris.herokuapp.com/authorization
-
-### Не судите строго :)
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
 
 ## Development server
